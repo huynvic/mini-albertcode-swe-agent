@@ -3,6 +3,32 @@
 Every release of mini-AlbertCode SWE Agent, newest first. Each one's installers and checksums are on
 its [release page](https://github.com/huynvic/mini-albertcode-swe-agent/releases).
 
+## 0.1.3
+
+- **A browser workspace of its own.** A navigator down the left lists every project with its sessions,
+  each with a lamp for what it is doing. A governed task's session head has the **gate track**: the work
+  as circles, the two human gates as diamonds, lit where the task stands (working, waiting for you,
+  stopped). You type at the console's ❯, with the mode one click away (Governed, Direct or Ask only) and
+  the provider and the model beside it. The inspector shows the change, the context and the task; a status
+  bar shows the service, the branch, the model and what the session used. A new session opens on a
+  launchpad. Nebula and Aurora, the new default themes, are glass over a lit backdrop.
+- **A menu bar, projects, Git and worktrees in the browser.** Open a folder from your drives and folders
+  (or make a new one), clone a repository, commit what the Changes tab shows (never a file that looks
+  like it holds secrets), pull, push, switch or make branches, and make, use and remove worktrees.
+- **Connecting a provider lists its models.** The address comes with `https://` (or `http://` on your
+  machine) already there, the key is checked as you type it, and the models it can use are listed to
+  choose one; a model per tier is folded under *Advanced*. DeepSeek, Groq, Mistral, Together AI and xAI
+  are offered by name. In the terminal, `/connect` ends with the models to choose from.
+- **The model list shows each connected provider's own models**, in the browser and the terminal,
+  recently used first; providers not connected are folded away, and a model's ID can be typed. It used
+  to list three empty tiers per provider, so a provider just connected offered nothing to choose.
+- **Settings by section**: General, Providers, Models, MCP servers, Agents, Keys, About.
+- **Windows: the terminal takes your typing on a slow start.** The list that offers a model at the first
+  start opened over the prompt there, and what you typed went into its search.
+- **The Changes tab's working tree no longer fails with "Internal Server Error"** on Windows: Git's
+  output is read as UTF-8 whatever the system's code page, and any unexpected failure now says what it was.
+- Escape closes a dialog even when focus has left it.
+
 ## 0.1.2
 
 - **`albert-mini serve` keeps what is done through it.** Started by hand, the service kept its sessions

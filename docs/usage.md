@@ -7,7 +7,7 @@ The short version of everything. Each section links to its full guide.
 | Interface | Start it | Good for | Guide |
 |---|---|---|---|
 | Terminal | `albert-mini` | Working where you already are; scripts and CI | [The terminal](terminal.md) |
-| Browser | `albert-mini web` | Plans and diffs side by side; several sessions in tabs | [The browser](browser.md) |
+| Browser | `albert-mini web` | Plans and diffs side by side; every project's sessions in one list | [The browser](browser.md) |
 
 Both talk to the same local service, so a session started in one is live in the other. See
 [How mini-AlbertCode works](how-it-works.md).
@@ -21,8 +21,8 @@ Both talk to the same local service, so a session started in one is live in the 
 | **Direct · auto-approve** | It works in your files without asking | Small, safe changes, with Git as the undo |
 | **Ask only** | It answers, and offers a change for your go | Understanding a codebase |
 
-`tab` cycles them in the terminal; the mode chip beside the box chooses one in the browser. `/plan …`,
-`/do …` and `/direct auto …` choose one for a single message. See
+`tab` cycles them in the terminal; in the browser, Governed, Direct and Ask only are in the box, a click
+each. `/plan …`, `/do …` and `/direct auto …` choose one for a single message. See
 [Modes and approvals](modes-and-approvals.md).
 
 ## Approvals

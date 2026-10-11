@@ -17,7 +17,7 @@ and a browser workspace, on one local service, and the AlbertCode engine's two h
 | Guide | What's in it |
 |---|---|
 | [The terminal](terminal.md) | `albert-mini`: the prompt, every key, slash command and list, gates, the sidebar, themes |
-| [The browser](browser.md) | `albert-mini web`: signing in, the workspace, the side panel, every shortcut, settings |
+| [The browser](browser.md) | `albert-mini web`: signing in, the workspace (navigator, gate track, console, inspector), every shortcut, settings |
 | [Modes and approvals](modes-and-approvals.md) | Governed, Direct and Ask only; the two human gates and every answer; from scripts |
 | [Sessions](sessions.md) | Sessions shared by both interfaces: opening, renaming, pinning, forking, exporting |
 | [Models](models.md) | Connecting a provider, choosing and testing a model, local models |
@@ -47,8 +47,11 @@ and a browser workspace, on one local service, and the AlbertCode engine's two h
 | Ask a question | Type it | Type it |
 | Make a change with approvals | `/plan …`, or the **Governed** mode | `/plan …`, or **Governed** |
 | Change files directly | `/do …` | `/do …`, or **Direct** |
-| Connect a model | `/connect` | **Connect a provider** |
-| Choose a model | `/model`, or <kbd>Ctrl</kbd> <kbd>X</kbd> <kbd>M</kbd> | <kbd>Alt</kbd> <kbd>M</kbd> |
+| Connect a model | `/connect` | **Settings** › **Connect a provider…** |
+| Choose a model | `/model`, or <kbd>Ctrl</kbd> <kbd>X</kbd> <kbd>M</kbd> | The model menu under the box, or <kbd>Alt</kbd> <kbd>M</kbd> |
+| Open or clone a project | Start `albert-mini` in its folder | **Project** › **Open a folder…** or **Clone a repository…** |
+| Commit, pull, push, branches | Git, in a terminal | The **Git** menu, or the branch under the box |
+| Work in a second checkout | `git worktree add` | **Project** › **Worktrees…** |
 | Start a new session | `/new` | <kbd>Alt</kbd> <kbd>N</kbd> |
 | See every session | `/sessions`, or <kbd>Ctrl</kbd> <kbd>X</kbd> <kbd>L</kbd> | <kbd>Alt</kbd> <kbd>B</kbd> |
 | See the change | `/diff`, or <kbd>Ctrl</kbd> <kbd>X</kbd> <kbd>D</kbd> | <kbd>Alt</kbd> <kbd>P</kbd>, **Changes** |

@@ -103,7 +103,7 @@ or two.
 > When it finishes, **open a new terminal**, then check it:
 >
 > ```bash
-> albert-mini --version     # mini-AlbertCode SWE Agent 0.1.2 (AlbertCode engine 1.51.1)
+> albert-mini --version     # mini-AlbertCode SWE Agent 0.1.3 (AlbertCode engine 1.51.1)
 > albert-mini doctor        # the installation, the service, and what to do about any problem
 > ```
 
@@ -297,7 +297,7 @@ One request, from plan to proof. Every screen below is the same task, followed i
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-diff-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-diff-light.png">
-  <img src="assets/readme/screen-diff-light.png" alt="The side panel's Changes tab beside the conversation: two files, and the one-line fix in cart.py, which now divides the percentage by 100." width="100%">
+  <img src="assets/readme/screen-diff-light.png" alt="The inspector's Changes tab beside the conversation: two files, and the one-line fix in cart.py, which now divides the percentage by 100." width="100%">
 </picture>
 
 <sub>Built in an isolated copy of your repository, never in your working tree.</sub>
@@ -312,7 +312,7 @@ One request, from plan to proof. Every screen below is the same task, followed i
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-evidence-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-evidence-light.png">
-  <img src="assets/readme/screen-evidence-light.png" alt="The task in full: checks 2 of 2 passed, the security and quality reviews approved, and the side panel's Task tab with the request, the lane, the model and the approved plan." width="100%">
+  <img src="assets/readme/screen-evidence-light.png" alt="The task in full: checks 2 of 2 passed, the security and quality reviews approved, and the inspector's Task tab with the request, the lane, the model and the approved plan." width="100%">
 </picture>
 
 <sub>Your own tests and two independent reviews, kept with the task.</sub>
@@ -439,14 +439,15 @@ time either needs it and keeps running, so closing a window never stops a task.
 | Interface | Start it | Good for |
 |---|---|---|
 | **Terminal** | `albert-mini` in your project folder (`--mini` to stay inline) | Working where you already are |
-| **Browser** | `albert-mini web` | Reading plans and diffs side by side; several sessions in tabs |
+| **Browser** | `albert-mini web` | Reading plans and diffs side by side; every project's sessions in one list |
 
 `albert-mini status` says whether the service is running; `albert-mini stop` stops it.
 
 ### Four modes
 
-`tab` cycles them in the terminal, and the mode chip beside the box chooses one in the browser. Use one
-for a single message with `/plan`, `/do` or `/direct auto`.
+`tab` cycles them in the terminal. In the browser, Governed, Direct and Ask only are in the box, a click
+each, with *Ask each write* or *Auto-approve* beside Direct. Use one for a single message with `/plan`,
+`/do` or `/direct auto`.
 
 | Mode | What happens | Use it for |
 |---|---|---|
@@ -512,10 +513,21 @@ the name in solid letters, and the prompt with the folder, the model and the mod
 
 ### The browser
 
-`albert-mini web` opens the workspace, signed in, in your default browser: the tabs of your open
-sessions, the conversation in a centred column with the box at its foot, and a side panel with the
-change a file at a time, the session's context and usage, and the task in full. The same themes as the
-terminal, light or dark by your system's setting.
+`albert-mini web` opens the workspace, signed in, in your default browser. A menu bar holds every command.
+The navigator down the left lists every project with its sessions, each with a lamp for what it is
+doing. A governed task's session head carries the **gate track**: the work as circles, the two human
+gates as diamonds, lit where the task stands. You type at the console's ❯, with the mode, the provider and the
+model one click away. The inspector on the right shows the change a file at a time, the context and the
+task in full, and a status bar along the foot shows the service, the branch and the model. Open or clone
+a project, commit, pull, push, switch branches and make worktrees from the Project and Git menus. Nebula
+and Aurora (glass, dark and light, by your system's setting) and four more themes, shared with the
+terminal.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-git-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-git-light.png">
+  <img src="assets/readme/screen-git-light.png" alt="The browser workspace after a change is accepted: the navigator with the session, the gate track all done, the Git menu open on Commit, Pull, Push, Switch branch, New branch and New worktree, and the status bar with the branch and its changed files." width="100%">
+</picture>
 
 | Shortcut | What it does |
 |---|---|
@@ -523,8 +535,24 @@ terminal, light or dark by your system's setting.
 | <kbd>Ctrl</kbd> <kbd>K</kbd> | Every command |
 | <kbd>Alt</kbd> <kbd>N</kbd> | A new session |
 | <kbd>Alt</kbd> <kbd>B</kbd> | Every session |
-| <kbd>Alt</kbd> <kbd>P</kbd> | Show or hide the side panel |
+| <kbd>Alt</kbd> <kbd>P</kbd> | Show or hide the inspector |
 | <kbd>Alt</kbd> <kbd>M</kbd> | Choose the model |
+
+<details>
+<summary><b>A new session opens on a launchpad</b></summary>
+
+<br>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-launchpad-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-launchpad-light.png">
+  <img src="assets/readme/screen-launchpad-light.png" alt="A new session in the browser: the navigator with the project and its two sessions, a greeting that asks what should change in shop, the box with Governed, Direct and Ask only, the provider and the model, the project, checkout and branch under it, and tiles for the sessions to pick up, the two human gates and ways to start." width="100%">
+</picture>
+
+<sub>The project's sessions to pick up again, how the two gates work (in Governed), and ways to start: open
+or clone a project, or connect a provider.</sub>
+
+</details>
 
 ### Gates
 
@@ -558,9 +586,17 @@ in a folder. See [Sessions](docs/sessions.md).
 | Any OpenAI-compatible service | Its address, and a key if it needs one |
 | Your own machine | Ollama, LM Studio, llama.cpp or another local model server |
 
-A provider is shown as connected only once it has accepted your key, or once its server answers with a
-model. Keys are kept by your system's own protection and never shown again. The model must support
-tool calling; `albert-mini models test` checks one. More in [Models](docs/models.md).
+Its address comes with `https://` (or `http://` on your machine) already there, the key is checked as you
+type it, and the models it can use are listed to choose one; DeepSeek, Groq, Mistral, Together AI and xAI
+are offered by name. A provider is shown as connected only once it has accepted your key, or once its
+server answers with a model. Keys are kept by your system's own protection and never shown again. The
+model must support tool calling; `albert-mini models test` checks one. More in [Models](docs/models.md).
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-connect-web-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-connect-web-light.png">
+  <img src="assets/readme/screen-connect-web-light.png" alt="Connecting a local model server in the browser: the address with http:// already chosen, and the models the server lists, one chosen, with a model per tier folded under Advanced." width="100%">
+</picture>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-connect-dark.png">
@@ -659,7 +695,7 @@ The full guide covers every command, key and gate, with examples.
 | [**How mini-AlbertCode works**](docs/how-it-works.md) | The service, the two interfaces, the modes, the gates, sessions and tasks |
 | [**Using mini-AlbertCode**](docs/usage.md) | The short version of everything, with links |
 | [**The terminal**](docs/terminal.md) | The prompt, every key, slash command and list |
-| [**The browser**](docs/browser.md) | The workspace, the side panel, every shortcut |
+| [**The browser**](docs/browser.md) | The workspace: navigator, gate track, console, inspector; every shortcut |
 | [**Modes and approvals**](docs/modes-and-approvals.md) | The four modes, the two gates and every answer |
 | [**Sessions**](docs/sessions.md) | Opening, renaming, forking, exporting and importing |
 | [**Models**](docs/models.md) | Providers, local models, and what a model needs |

@@ -9,7 +9,7 @@ HTTP, with sign-in where the server asks for it).
 | Where | How |
 |---|---|
 | Terminal | `/mcp`, or `ctrl+x c`: `enter` switches one on or off, `ctrl+r` reconnects, `ctrl+a` signs in, `ctrl+d` removes |
-| Browser | *MCP servers* in the top bar |
+| Browser | *Settings → MCP servers…* in the menu bar, or *MCP* in the status bar |
 | Command line | `albert-mini mcp …`, below |
 
 The welcome screen and the sidebar say how many are connected, and how many need your attention

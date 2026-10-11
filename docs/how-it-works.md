@@ -66,7 +66,7 @@ A **session** is one conversation, with its tasks. Sessions belong to the servic
 either interface can continue what the other started. See [Sessions](sessions.md).
 
 A **task** is one change, from its plan to its result. It keeps its plan, its steps, its checks, its
-reviews and its diff together: in the browser, the side panel's Task and Changes tabs; in the terminal,
+reviews and its diff together: in the browser, the inspector's Task and Changes tabs; in the terminal,
 the conversation and the sidebar (`ctrl+x b`). A session shows whether it is working, waiting for you, or
 idle.
 

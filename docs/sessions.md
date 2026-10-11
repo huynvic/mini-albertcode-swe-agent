@@ -9,7 +9,7 @@ Closing a window never stops a task.
 | Where | How |
 |---|---|
 | Terminal | `/sessions` or `ctrl+x l`; `ctrl+p` also lists them |
-| Browser | `Alt+B`, or the tabs in the top bar |
+| Browser | The navigator down the left, every project with its sessions; `Alt+B` for every session |
 | Starting the terminal | `albert-mini -c` continues the latest session in this folder; `albert-mini -s <id>` opens one |
 
 A new session is named after its first message.

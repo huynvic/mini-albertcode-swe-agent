@@ -48,7 +48,7 @@ problem.
 |---|---|
 | A change is waiting and nothing happens | It is at a gate: answer it in either interface (`albert-mini -c` reopens the session). |
 | `esc` does nothing | `esc` stops a running task; at a gate it moves between the box and the gate. `/stop` stops it too. |
-| The diff is not shown while a task works | It is shown when the step ends; the side panel lists the files changed so far. |
+| The diff is not shown while a task works | It is shown when the step ends; the inspector lists the files changed so far. |
 
 ## Reporting a bug
 

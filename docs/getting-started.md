@@ -40,8 +40,9 @@ No model connected yet. Pick a provider to connect one now, or press Esc to skip
 ```
 
 Type to filter, choose with the arrows and `enter`, and paste your API key when it asks (or give a local
-server's address). The key is checked with the provider before anything is saved, and it is never shown
-again. Then pick a model from the list that opens. See [Models](models.md).
+server's address; its `https://` or `http://` is already there). The key is checked with the provider
+before anything is saved, and it is never shown again. Then the models your key can use are listed:
+pick one, and it is used at once. See [Models](models.md).
 
 ## 3. Ask a question
 

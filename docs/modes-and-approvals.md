@@ -17,7 +17,7 @@ Choose it:
 | Where | How |
 |---|---|
 | Terminal | `tab` cycles the modes; `/mode` lists them; `/mode auto` and the like choose one |
-| Browser | The mode chip beside the box; in Direct, the approval switch beside it |
+| Browser | Governed, Direct or Ask only, in the box; in Direct, *Ask each write* or *Auto-approve* beside it |
 | One message | `/plan …`, `/do …` or `/direct auto …` in front of it |
 | A new session | `albert-mini --mode governed\|direct\|direct_auto\|ask` |
 
