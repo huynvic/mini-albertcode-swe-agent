@@ -103,7 +103,7 @@ or two.
 > When it finishes, **open a new terminal**, then check it:
 >
 > ```bash
-> albert-mini --version     # mini-AlbertCode SWE Agent 0.1.1 (AlbertCode engine 1.51.1)
+> albert-mini --version     # mini-AlbertCode SWE Agent 0.1.2 (AlbertCode engine 1.51.1)
 > albert-mini doctor        # the installation, the service, and what to do about any problem
 > ```
 

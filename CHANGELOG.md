@@ -3,6 +3,19 @@
 Every release of mini-AlbertCode SWE Agent, newest first. Each one's installers and checksums are on
 its [release page](https://github.com/huynvic/mini-albertcode-swe-agent/releases).
 
+## 0.1.2
+
+- **`albert-mini serve` keeps what is done through it.** Started by hand, the service kept its sessions
+  and tasks in memory and its settings in a folder of its own: everything done through it was gone once it
+  stopped, and the service `albert-mini` starts did not see its settings. It now uses the same folders as
+  the service `albert-mini` and `albert-mini web` start.
+- **Updating says what is kept.** The installers said every update would clear saved keys and model
+  choices. They are cleared only when the AlbertCode engine changes, and 0.1.2 carries the same engine as
+  0.1.1 (1.51.1): keys, model choices, settings and sessions are kept.
+- The line a reply ends with for the engine (`@@CHANGE@@ …`) is no longer shown while the reply is being
+  written, in the terminal, the browser or `albert-mini run`.
+- `albert-mini run` shows the plan it stops at or approves: its objective, steps, files and risk.
+
 ## 0.1.1
 
 - **`albert-mini` and `albert-mini web` start the service again.** In 0.1.0 neither could start

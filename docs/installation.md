@@ -34,7 +34,7 @@ Prefer to read before running? Download [`installer/install.sh`](../installer/in
 An example, on Linux:
 
 ```text
-mini-AlbertCode SWE Agent 0.1.1 installer
+mini-AlbertCode SWE Agent 0.1.2 installer
 Checking this machine. Nothing is changed until you say so.
 
 Found
@@ -50,7 +50,7 @@ Found
 Will do
   1. Download uv 0.9.5 (about 20 MB, checked against its published SHA-256) ...
   2. Use your Python 3.12 (/usr/bin/python3.12); nothing is installed into it.
-  3. Install mini-AlbertCode 0.1.1 with its browser tools, in its own environment ...
+  3. Install mini-AlbertCode 0.1.2 with its browser tools, in its own environment ...
   4. Use /usr/bin/chromium for the browser tools (no browser download).
   5. Add ~/.local/bin to your PATH in your shell's startup file, so 'albert-mini' works in any new terminal.
   6. Check that it installed: its version, its commands, and its service starting and answering.
@@ -60,14 +60,14 @@ Proceed? [Y/N] Y
 Installing
   ...
 Checking the installation
-  Version 0.1.1
+  Version 0.1.2
   albert-mini starts
   Browser tools load
   Git works
   New terminals find albert-mini
-  The service starts and answers (0.1.1)
+  The service starts and answers (0.1.2)
 
-mini-AlbertCode 0.1.1 is ready.
+mini-AlbertCode 0.1.2 is ready.
   Open a new terminal and run:   albert-mini
   Or open it in your browser:    albert-mini web
   Then connect a model: it asks on the first start, or /connect at any time.
