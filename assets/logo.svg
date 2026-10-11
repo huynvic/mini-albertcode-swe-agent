@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180" role="img" aria-label="mini-AlbertCode SWE Agent">
+  <title>mini-AlbertCode SWE Agent</title>
+  <rect width="180" height="180" rx="40" fill="#0D0D0D"/>
+  <rect x="40.5" y="40.5" width="99" height="99" rx="25" fill="none" stroke="#F26B3A" stroke-width="8.5"/>
+  <path d="M66 72.5 84 90 66 107.5" fill="none" stroke="#F26B3A" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M109.5 62v56" fill="none" stroke="#E4E4E4" stroke-width="6.5" stroke-linecap="round"/>
+  <circle cx="109.5" cy="90" r="8.5" fill="#0D0D0D" stroke="#F26B3A" stroke-width="6.5"/>
+</svg>
