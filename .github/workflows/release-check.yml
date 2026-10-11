@@ -1,11 +1,9 @@
 name: Release check
 
-# Installs a published release the way a new user does, on clean Windows, macOS and Linux
-# machines: the bootstrap downloads the installer for the machine, checks it against SHA256SUMS,
-# installs, and mini-AlbertCode reports its version; then the bootstrap uninstalls it.
-#
-# The release's files are fetched with this workflow's own token and served from disk, so this
-# also works while the repository is private.
+# Installs a published release the way a new user does, on clean Windows, macOS and Linux machines, with the
+# README's own commands: the bootstrap, fetched from this repository, finds the installer for the machine in the
+# release, checks it against SHA256SUMS and installs. Then mini-AlbertCode reports its version, its service starts
+# as `albert-mini` and `albert-mini web` start it, and the bootstrap uninstalls it.
 
 on:
   release:
@@ -18,6 +16,9 @@ on:
 
 permissions:
   contents: read
+
+env:
+  BOOTSTRAP: https://raw.githubusercontent.com/${{ github.repository }}/main/installer
 
 jobs:
   install:
@@ -33,31 +34,43 @@ jobs:
     runs-on: ${{ matrix.runner }}
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - name: Fetch the release, laid out as GitHub serves it
+      - name: The release to check
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
+          NAMED: ${{ inputs.tag }}
           WANTED: ${{ inputs.tag || github.event.release.tag_name }}
         run: |
           tag="${WANTED:-$(gh release view --repo "$GITHUB_REPOSITORY" --json tagName --jq .tagName)}"
-          mkdir -p "mirror/download/$tag" mirror/latest/download
-          gh release download "$tag" --repo "$GITHUB_REPOSITORY" --dir "mirror/download/$tag"
-          cp "mirror/download/$tag/SHA256SUMS" mirror/latest/download/SHA256SUMS
           echo "VERSION=${tag#v}" >> "$GITHUB_ENV"
-          ls "mirror/download/$tag"
+          # A tag named by hand is installed by its version; otherwise the latest, as the README installs it.
+          if [ -n "$NAMED" ]; then echo "PICK=--version ${tag#v}" >> "$GITHUB_ENV"; fi
 
       - name: Install, as on macOS and Linux
         if: runner.os != 'Windows'
+        shell: bash
         run: |
-          MINI_ALBERTCODE_DOWNLOAD_BASE="file://$PWD/mirror" sh installer/install.sh --yes | tee install.txt
+          curl -fsSL "$BOOTSTRAP/install.sh" | sh -s -- --yes $PICK | tee install.txt
           grep -q "is ready" install.txt
           "$HOME/.local/bin/albert-mini" --version | tee version.txt
           grep -q "$VERSION" version.txt
+      - name: The service starts as albert-mini starts it, on macOS and Linux
+        if: runner.os != 'Windows'
+        shell: bash
+        run: |
+          mini="$HOME/.local/bin/albert-mini"
+          if ! "$mini" sessions --json; then
+            find "$HOME" -name backend.log -path '*mini-AlbertCode*' -exec tail -n 40 {} \; 2>/dev/null
+            exit 1
+          fi
+          "$mini" status | tee status.txt
+          grep -q '"ours": true' status.txt
+          "$mini" stop
       - name: Uninstall, as on macOS and Linux
         if: runner.os != 'Windows'
+        shell: bash
         run: |
-          sh installer/install.sh --uninstall --yes | tee uninstall.txt
+          curl -fsSL "$BOOTSTRAP/install.sh" | sh -s -- --uninstall --yes | tee uninstall.txt
           grep -q "mini-AlbertCode is uninstalled." uninstall.txt
           test ! -e "$HOME/.local/bin/albert-mini"
 
@@ -65,16 +78,29 @@ jobs:
         if: runner.os == 'Windows'
         shell: pwsh
         run: |
-          $env:MINI_ALBERTCODE_DOWNLOAD_BASE = 'file:///' + ((Get-Location).Path -replace '\\', '/') + '/mirror'
-          $env:MINI_ALBERTCODE_INSTALL_ARGS = '--yes'
-          Get-Content installer/install.ps1 -Raw | Invoke-Expression
+          $env:MINI_ALBERTCODE_INSTALL_ARGS = "--yes $env:PICK".Trim()
+          irm "$env:BOOTSTRAP/install.ps1" | iex
           $found = & "$env:USERPROFILE\.local\bin\albert-mini.exe" --version
           Write-Output $found
           if ($found -notmatch [regex]::Escape($env:VERSION)) { exit 1 }
+      - name: The service starts as albert-mini starts it, on Windows
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $mini = "$env:USERPROFILE\.local\bin\albert-mini.exe"
+          & $mini sessions --json
+          if ($LASTEXITCODE) {
+            Get-Content "$env:LOCALAPPDATA\mini-AlbertCode SWE Agent\backend.log" -Tail 40 -ErrorAction SilentlyContinue
+            exit 1
+          }
+          $status = & $mini status | Out-String
+          Write-Output $status
+          if ($status -notmatch '"ours": true') { exit 1 }
+          & $mini stop
       - name: Uninstall, as on Windows
         if: runner.os == 'Windows'
         shell: pwsh
         run: |
           $env:MINI_ALBERTCODE_INSTALL_ARGS = '--uninstall --yes'
-          Get-Content installer/install.ps1 -Raw | Invoke-Expression
+          irm "$env:BOOTSTRAP/install.ps1" | iex
           if (Test-Path "$env:USERPROFILE\.local\bin\albert-mini.exe") { exit 1 }
