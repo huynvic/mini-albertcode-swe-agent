@@ -3,6 +3,16 @@
 Every release of mini-AlbertCode SWE Agent, newest first. Each one's installers and checksums are on
 its [release page](https://github.com/huynvic/mini-albertcode-swe-agent/releases).
 
+## 0.1.1
+
+- **`albert-mini` and `albert-mini web` start the service again.** In 0.1.0 neither could start
+  mini-AlbertCode's background service, on any system: both stopped with "The mini-AlbertCode SWE Agent
+  service could not be started", and only `albert-mini serve` worked. Update with `albert-mini update`,
+  or run the install command again; your settings, keys and sessions are kept.
+- `albert-mini doctor` shows the Python it runs on, not the one the release was built with.
+- Each release is now installed with the README's own commands on clean Windows, macOS and Linux
+  machines, and its service started as `albert-mini` starts it, before it is called done.
+
 ## 0.1.0
 
 The first release.
