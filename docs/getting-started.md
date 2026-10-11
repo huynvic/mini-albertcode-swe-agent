@@ -88,3 +88,11 @@ Press `v` to read the diff, then `a` to apply it. Only now do your files change.
 - `/help` lists every command; `/keys` every key.
 - `ctrl+x b` shows the sidebar with the session's mode, model, task and changed files.
 - Close the terminal at any time: the task keeps going, and `albert-mini -c` continues the session.
+
+Then:
+
+- [How mini-AlbertCode works](how-it-works.md): the ideas behind every page.
+- [Modes and approvals](modes-and-approvals.md): the modes, the two gates and every answer.
+- [The terminal](terminal.md) and [the browser](browser.md): every key and command.
+- [Custom commands and agents](extending.md) and [MCP servers](mcp.md): your own commands, roles and tools.
+- [All the documentation](README.md).

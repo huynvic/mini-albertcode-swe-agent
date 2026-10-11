@@ -1,36 +1,65 @@
-# mini-AlbertCode SWE Agent documentation
+# mini-AlbertCode documentation
 
-mini-AlbertCode SWE Agent is a coding agent you run on your own machine. It has two interfaces, a
-terminal interface and a browser workspace, on one local service, so a session started in one shows
-in the other at the same moment. It carries the AlbertCode engine: governed changes are planned for
-your approval, built in an isolated copy of your repository, checked and reviewed, and reach your
-files only when you apply them.
+Everything you need to install, use and run mini-AlbertCode SWE Agent: every command, key and gate, with
+examples. mini-AlbertCode is a coding agent you run on your own machine, with two interfaces, a terminal
+and a browser workspace, on one local service, and the AlbertCode engine's two human gates.
 
 ## Start here
 
-| Page | What it covers |
-|---|---|
-| [Installation](installation.md) | Installing, updating and uninstalling on Windows, macOS and Linux |
-| [Getting started](getting-started.md) | Your first task, in about five minutes |
+1. [**Getting started**](getting-started.md): install, connect a model, and finish a first task in
+   about five minutes.
+2. [**How mini-AlbertCode works**](how-it-works.md): the service and its two interfaces, asking and
+   changing, the modes, the life of a governed change, sessions and tasks, and what is kept where.
+3. [**Using mini-AlbertCode**](usage.md): the short version of everything, with links.
 
-## Using it
+## Using mini-AlbertCode
 
-| Page | What it covers |
+| Guide | What's in it |
 |---|---|
-| [The terminal](terminal.md) | The terminal interface: the prompt, keys, commands and lists |
-| [The browser](browser.md) | The browser workspace: sessions, the side panel, keys and settings |
-| [Modes and approvals](modes-and-approvals.md) | Governed, Direct and Ask only; the two human gates and how to answer them |
-| [Models](models.md) | Connecting a provider, choosing a model, local models |
-| [MCP servers](mcp.md) | Outside tools: adding, signing in, the connector catalogue, importing |
-| [Sessions](sessions.md) | Sessions shared by both interfaces: opening, renaming, forking, exporting |
+| [The terminal](terminal.md) | `albert-mini`: the prompt, every key, slash command and list, gates, the sidebar, themes |
+| [The browser](browser.md) | `albert-mini web`: signing in, the workspace, the side panel, every shortcut, settings |
+| [Modes and approvals](modes-and-approvals.md) | Governed, Direct and Ask only; the two human gates and every answer; from scripts |
+| [Sessions](sessions.md) | Sessions shared by both interfaces: opening, renaming, pinning, forking, exporting |
+| [Models](models.md) | Connecting a provider, choosing and testing a model, local models |
+
+## Extending
+
+| Guide | What's in it |
+|---|---|
 | [Custom commands and agents](extending.md) | Prompts you call by name, and roles that narrow what a task may do |
-| [Commands](commands.md) | Every `albert-mini` command and option, with examples |
+| [MCP servers](mcp.md) | Outside tools: adding servers, signing in, the connector catalogue, importing |
 
 ## Reference
 
-| Page | What it covers |
+| Guide | What's in it |
 |---|---|
-| [Security](security.md) | The local service, its access token, where keys are kept, what leaves your machine |
-| [Troubleshooting](troubleshooting.md) | Problems and their fixes |
-| [FAQ](faq.md) | Short answers to common questions |
-| [Glossary](glossary.md) | The words these pages use |
+| [Commands](commands.md) | Every `albert-mini` command and option, with examples and exit codes |
+| [Installation](installation.md) | Options, updating, uninstalling, requirements, files and folders |
+| [Security model](security.md) | The local service, its access token, where keys are kept, what leaves your machine |
+| [Troubleshooting](troubleshooting.md) | Fixes for installing, starting, models and tasks |
+| [FAQ](faq.md) | Short answers |
+| [Glossary](glossary.md) | Every term, in one place |
+
+## Find a command
+
+| I want to… | Terminal | Browser |
+|---|---|---|
+| Ask a question | Type it | Type it |
+| Make a change with approvals | `/plan …`, or the **Governed** mode | `/plan …`, or **Governed** |
+| Change files directly | `/do …` | `/do …`, or **Direct** |
+| Connect a model | `/connect` | **Connect a provider** |
+| Choose a model | `/model`, or <kbd>Ctrl</kbd> <kbd>X</kbd> <kbd>M</kbd> | <kbd>Alt</kbd> <kbd>M</kbd> |
+| Start a new session | `/new` | <kbd>Alt</kbd> <kbd>N</kbd> |
+| See every session | `/sessions`, or <kbd>Ctrl</kbd> <kbd>X</kbd> <kbd>L</kbd> | <kbd>Alt</kbd> <kbd>B</kbd> |
+| See the change | `/diff`, or <kbd>Ctrl</kbd> <kbd>X</kbd> <kbd>D</kbd> | <kbd>Alt</kbd> <kbd>P</kbd>, **Changes** |
+| Give it a file or screenshot | `/attach <path>` | The **+** beside the box |
+| Open the session in the other interface | `/web` | `albert-mini -s <id>` in a terminal |
+| Add an MCP server | `/mcp` | **MCP servers**, from <kbd>Ctrl</kbd> <kbd>K</kbd> |
+| Every command | `/help`, or <kbd>Ctrl</kbd> <kbd>P</kbd> | <kbd>Ctrl</kbd> <kbd>K</kbd> |
+
+## Getting help
+
+- [Troubleshooting](troubleshooting.md) has the fixes for common problems, and `albert-mini doctor`
+  checks your installation.
+- Report a bug in [Issues](https://github.com/huynvic/mini-albertcode-swe-agent/issues/new/choose), with
+  `albert-mini --version` and your operating system. Never include keys, tokens or private code.
