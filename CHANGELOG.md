@@ -3,6 +3,30 @@
 Every release of mini-AlbertCode SWE Agent, newest first. Each one's installers and checksums are on
 its [release page](https://github.com/huynvic/mini-albertcode-swe-agent/releases).
 
+## 0.1.4
+
+- **Faster everywhere.** Typing in the browser now takes about a frame (11 ms a key, from 64 ms), an
+  answer streams at 60 frames a second (from 10), and moving to another session while one works takes a
+  tenth of a second: the panels were a live blur painted again on every keystroke. The working tree lists
+  every changed file at once and reads a file's diff when you open it, where it read all of them first
+  (and left out every file after the 60th).
+- **Speed: Fast, Balanced or Thorough** sets how much the model thinks at each step (Settings, General, or
+  `/speed`). Fast, the default, lightens the review and keeps planning and writing as deep as ever: a
+  governed fix with DeepSeek took about a quarter less time, every check and review still run.
+- **Stop, archive, delete and remove.** Each session in the navigator has its actions (rename, pin, stop,
+  archive, delete) and a stop button while it works; a project can be taken off the list (its sessions
+  archived, its folder untouched) or have its sessions deleted. Sessions run on their own: while one
+  works, open, use and stop the others.
+- **A resizable inspector**: drag the edge between the conversation and the inspector, or move it with the
+  arrow keys; the width is kept.
+- **MCP servers ready to add.** The MCP dialog lists every connector (Git, Filesystem, Fetch, AWS
+  Documentation, Hugging Face, Playwright, Chrome DevTools, PostgreSQL, Memory, Sequential Thinking, Time,
+  Everything), each a click or one answer away. Import the JSON block a server's instructions give
+  (`mcpServers`), in the browser, in the terminal's `/mcp` or with `albert-mini mcp import FILE`.
+- **Nothing empty.** The inspector before a session or a task, Settings (MCP servers, agents, about) and
+  Every session with none yet now say what is there and what to do next.
+- **The terminal's prompt follows the welcome**, instead of waiting at the foot of an empty screen.
+
 ## 0.1.3
 
 - **A browser workspace of its own.** A navigator down the left lists every project with its sessions,
@@ -68,8 +92,7 @@ The first release.
 - **Models.** OpenRouter, OpenAI, Anthropic, Kimi, Hugging Face, any OpenAI-compatible service, or a
   model server on your machine. Connect a provider opens by itself on the first start, and a key is
   checked before it is saved.
-- **MCP servers**, local and remote with sign-in, a connector catalogue, and importing your OpenCode
-  servers.
+- **MCP servers**, local and remote with sign-in, and a connector catalogue.
 - **Installers for Windows, macOS and Linux**, which check the machine, show their plan and ask before
   changing anything, and find the version installed and ask before updating it; `albert-mini update`
   and `albert-mini uninstall`.

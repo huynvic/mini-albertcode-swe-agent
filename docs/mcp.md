@@ -17,9 +17,47 @@ The welcome screen and the sidebar say how many are connected, and how many need
 
 ## Adding one
 
-**From the connector catalogue** (GitHub, Playwright, PostgreSQL, web fetch and more): *Add a
-connector…* in the MCP list. It asks only what that connector needs, such as a token, typed into a
-field that doesn't show it.
+**Ready to add.** *MCP servers…* (the Settings menu, or *MCP* in the status bar) lists every connector
+under *Ready to add*. Each one has been installed on a clean machine, connected, and had its tools listed
+and called. Most are a single click; a few ask one question first, such as a folder, in a field that
+hides anything secret. In the terminal it is *+ Add a connector…* in `/mcp`, and on the command line
+`albert-mini mcp connectors`, then `albert-mini mcp install <id>`.
+
+| Connector | What it gives Albert | Needs on your machine | Asks for |
+|---|---|---|---|
+| Git | Status, diffs, log and branches of a repository | `uv` | The repository's folder |
+| Filesystem | Read, write and search files, only inside the folders you name | Node.js | The folders |
+| Fetch | A web page, as Markdown | `uv` | Nothing |
+| AWS Documentation | Search and read AWS's documentation | `uv` | Nothing |
+| Hugging Face | Search models, datasets, Spaces and papers; sign in for your own | Nothing (remote) | Nothing (sign in is optional) |
+| Playwright | A real browser to open pages, click, type and read | Node.js and Google Chrome | Nothing |
+| Chrome DevTools | A live Chrome: console, network, performance, the page | Node.js and Google Chrome | Nothing |
+| PostgreSQL | Read-only SQL, schemas and query plans | `uv` | The connection URI |
+| Memory | A knowledge graph Albert keeps notes in across sessions | Node.js | Nothing |
+| Sequential Thinking | Notes for working through a hard problem step by step | Node.js | Nothing |
+| Time | The current time and time-zone conversion | `uv` | Nothing |
+| Everything | The protocol's reference server, for trying MCP out | Node.js | Nothing |
+
+The first start of each downloads its server (a few seconds; up to two minutes on a slow connection).
+
+**From a server's instructions.** Most MCP servers say how to add them with a block of JSON. Paste it
+into *Import JSON…* in the MCP dialog (or open the file it is in), or give the file to the command line.
+Servers under `mcpServers` or `servers` are read, comments are fine, and nothing connects until you add
+it. Values of `env` and `headers` are only ever shown masked:
+
+```json
+{
+  "mcpServers": {
+    "memory": { "command": "npx", "args": ["-y", "@modelcontextprotocol/server-memory"] },
+    "docs": { "url": "https://mcp.example.com/mcp", "headers": { "Authorization": "Bearer {env:DOCS_TOKEN}" } }
+  }
+}
+```
+
+```bash
+albert-mini mcp import servers.json           # show what would be added
+albert-mini mcp import servers.json --apply   # add them
+```
 
 **By hand:**
 
@@ -27,15 +65,6 @@ field that doesn't show it.
 albert-mini mcp add files --command "npx -y @modelcontextprotocol/server-filesystem ."
 albert-mini mcp add docs --url https://mcp.example.com/mcp
 albert-mini mcp add api --url https://mcp.example.com/mcp --header "Authorization=Bearer <token>"
-```
-
-**From OpenCode.** If you already set up MCP servers for OpenCode, bring them across. It reads your
-OpenCode files the way OpenCode does (global, project and `.opencode`), keeps `{env:…}` references as
-references, and masks secrets in everything it shows:
-
-```bash
-albert-mini mcp import-opencode           # show what would be added
-albert-mini mcp import-opencode --apply   # add them
 ```
 
 ## Signing in
@@ -59,5 +88,6 @@ albert-mini mcp connect <name>          # connect again
 albert-mini mcp tools <name>            # what it offers
 albert-mini mcp connectors              # the catalogue
 albert-mini mcp install <id> key=value  # add one from the catalogue
+albert-mini mcp import FILE [--apply]   # servers from a block of JSON
 albert-mini mcp remove <name>
 ```

@@ -49,7 +49,7 @@ them.
 | `/mode [governed\|direct\|auto\|ask]` | How a change is handled; with no word, the list |
 | `/agent` | Work as one of this repository's custom agents |
 | `/connect` | Connect a model provider |
-| `/mcp` | MCP servers: on or off, sign in, add, import from OpenCode |
+| `/mcp` | MCP servers: on or off, sign in, add a connector, import from JSON |
 | `/diff` | This session's change, or your working tree's |
 | `/stop` | Stop what the session is doing |
 | `/rename [title]` | Rename this session |
@@ -58,6 +58,7 @@ them.
 | `/import <file>` | Open a session saved as JSON |
 | `/attach <paths>` | Attach files to your next message |
 | `/theme` | Choose a colour theme |
+| `/speed [fast\|balanced\|thorough]` | How much the model thinks at each step of a task (shared with the browser) |
 | `/details` | Show every step of the tasks here |
 | `/web` | Open this session in the browser |
 | `/status` | The service, the engine and what is connected |

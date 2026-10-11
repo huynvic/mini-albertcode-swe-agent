@@ -103,7 +103,7 @@ or two.
 > When it finishes, **open a new terminal**, then check it:
 >
 > ```bash
-> albert-mini --version     # mini-AlbertCode SWE Agent 0.1.3 (AlbertCode engine 1.51.1)
+> albert-mini --version     # mini-AlbertCode SWE Agent 0.1.4 (AlbertCode engine 1.51.1)
 > albert-mini doctor        # the installation, the service, and what to do about any problem
 > ```
 
@@ -518,10 +518,10 @@ The navigator down the left lists every project with its sessions, each with a l
 doing. A governed task's session head carries the **gate track**: the work as circles, the two human
 gates as diamonds, lit where the task stands. You type at the console's ❯, with the mode, the provider and the
 model one click away. The inspector on the right shows the change a file at a time, the context and the
-task in full, and a status bar along the foot shows the service, the branch and the model. Open or clone
-a project, commit, pull, push, switch branches and make worktrees from the Project and Git menus. Nebula
-and Aurora (glass, dark and light, by your system's setting) and four more themes, shared with the
-terminal.
+task in full (drag its edge to make it wider or narrower), and a status bar along the foot shows the
+service, the branch and the model. Open or clone a project, commit, pull, push, switch branches and make
+worktrees from the Project and Git menus. Nebula and Aurora (glass, dark and light, by your system's
+setting) and four more themes, shared with the terminal.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-git-dark.png">
@@ -554,6 +554,22 @@ or clone a project, or connect a provider.</sub>
 
 </details>
 
+<details>
+<summary><b>MCP servers: a connector in a click</b></summary>
+
+<br>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-mcp-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-mcp-light.png">
+  <img src="assets/readme/screen-mcp-light.png" alt="The MCP servers dialog: a search line, then connectors ready to add by group, such as Git, Filesystem, AWS Documentation, Fetch and Hugging Face, each with what it does, what it needs and an Add button, and Import JSON and Add by hand at the foot." width="100%">
+</picture>
+
+<sub>Twelve connectors ready to add, each seen working end to end; a server of your own by hand, or several
+at once from an <code>mcpServers</code> JSON file. See <a href="docs/mcp.md">MCP servers</a>.</sub>
+
+</details>
+
 ### Gates
 
 A gate is where a change waits for you. Each answer has a key, the same in both interfaces:
@@ -570,9 +586,10 @@ A gate is where a change waits for you. Each answer has a key, the same in both 
 
 ### Sessions
 
-A session is one conversation and its tasks. Sessions belong to the service, not to a window: rename,
-pin, fork, export or import them from either interface, and `albert-mini -c` continues the latest one
-in a folder. See [Sessions](docs/sessions.md).
+A session is one conversation and its tasks. Sessions belong to the service, not to a window, and each
+runs on its own: switch to another while one works. Rename, pin, fork, stop, archive, delete, export or
+import them from either interface, or take a whole project off the list; `albert-mini -c` continues the
+latest one in a folder. See [Sessions](docs/sessions.md).
 
 <br>
 
@@ -590,7 +607,10 @@ Its address comes with `https://` (or `http://` on your machine) already there, 
 type it, and the models it can use are listed to choose one; DeepSeek, Groq, Mistral, Together AI and xAI
 are offered by name. A provider is shown as connected only once it has accepted your key, or once its
 server answers with a model. Keys are kept by your system's own protection and never shown again. The
-model must support tool calling; `albert-mini models test` checks one. More in [Models](docs/models.md).
+model must support tool calling; `albert-mini models test` checks one. [**Speed**](docs/browser.md#settings)
+(Settings, or `/speed` in the terminal) sets how much the model thinks at each step: Fast, the default,
+answers and reviews sooner and plans and builds as deeply as ever; Thorough thinks longest at every step.
+More in [Models](docs/models.md).
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-connect-web-dark.png">

@@ -101,7 +101,7 @@ albert-mini mcp tools|prompts|resources NAME     # what it offers
 albert-mini mcp debug NAME                       # what it reports, for finding a problem
 albert-mini mcp connectors                       # the catalogue
 albert-mini mcp install ID key=value …           # add one from the catalogue
-albert-mini mcp import-opencode [--apply]        # bring OpenCode's MCP servers across
+albert-mini mcp import FILE [--apply]            # servers from a block of JSON (mcpServers)
 ```
 
 See [MCP servers](mcp.md).

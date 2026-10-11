@@ -33,11 +33,14 @@ it out of the address. See [Security](security.md).
 
 - **The navigator**, down the left: every project with its sessions under it, newest first, each with a
   lamp (working, waiting for you, stopped with an error); a new session, here or in a given project; a
-  search; and every session in full. Fold it to a rail of icons with the arrow at its top; it stays as
+  search; and every session in full. Each session's `⋯` holds Rename, Pin, Stop, Archive and Delete, and
+  a session at work has a stop button of its own. A project's `⋯` starts a session there, takes the
+  project off the list (its sessions are archived, still under Every session; its folder is untouched),
+  or deletes its sessions. Fold the navigator to a rail of icons with the arrow at its top; it stays as
   you left it. Beside the open inspector on a screen narrower than 1360 pixels it folds by itself, so the
   conversation keeps its room.
 - **The session**, in the middle. Its head has the title (click to rename), where it works and its mode,
-  and, when its latest task is governed, the **gate track**: the work as circles, the two human gates as
+  Stop while it works, its actions (`⋯`), and, when its latest task is governed, the **gate track**: the work as circles, the two human gates as
   diamonds: *Plan → Your approval → Build in a copy → Checks and reviews → Your acceptance → In your
   files*. The step the task is on is lit: blue while it works, orange while it waits for you, red where
   it stopped. Click it for the task in full. Direct and Ask only have no gates, so no track.
@@ -47,7 +50,10 @@ it out of the address. See [Security](security.md).
   provider and the model, the agent, and send. Under the console, what it works on: the project, its
   checkout (the repository itself or one of its worktrees) and its branch, each a menu.
 - **The inspector** (`Alt+P`), on the right: the change, a file at a time, of the task's isolated copy
-  or of your working tree; the session's context and usage; and the task in full.
+  or of your working tree (every changed file listed at once, a file's diff read when you open it); the
+  session's context and usage; and the task in full, or, before there is one, how a task goes and the
+  recent work in the project. Drag its edge to give it or the conversation more room (or focus the edge
+  and use the arrow keys); the width is kept, and a double click puts it back.
 - **The status bar**, along the foot: whether the service is live, the project and its branch (↑ ahead,
   ↓ behind, ● changed files), the mode, the provider and model, what the session's tasks used, MCP
   servers, and the inspector. Each is a button to where it is changed or seen in full.
@@ -144,13 +150,23 @@ The Settings menu, or every command (`Ctrl+K`, *Settings*). A section at a time:
 
 | Section | Holds |
 |---|---|
-| General | The theme (shared with the terminal), the time of each message, the folder new sessions work in, the mode they start in |
+| General | The theme (shared with the terminal), the time of each message, the folder new sessions work in, the mode they start in, and the speed |
 | Providers | Each provider, connected or what it needs, with *Connect* or *Change* |
 | Models | The model new sessions use |
-| MCP servers | How many, and how many connected; manage them |
-| Agents | Choose an agent to work as |
+| MCP servers | Your servers and where each stands, or the connectors ready to add; manage them |
+| Agents | Albert and this project's custom agents, what each may do, and how to add one |
 | Keys | Every key |
-| About | This installation and its engine, the service's status |
+| About | This installation and its engine, how to update it, the guide, what's new, the licences |
+
+**Speed** sets how much the model thinks at each step of a task, shared with the terminal (`/speed`):
+
+| Speed | What it does |
+|---|---|
+| Fast (the default) | A lighter review; planning and writing as deep as ever. A governed fix took about a quarter less time |
+| Balanced | The engine's own depth at each step |
+| Thorough | The most thinking at every step: slower, for changes that need it |
+
+Every check and every review runs at every speed.
 
 Six themes, the same as the terminal's: Nebula and Aurora (the defaults, dark and light, by your
 system's setting: glass panels over a lit backdrop), Ember, Ember light, Slate and High contrast.
