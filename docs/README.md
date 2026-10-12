@@ -59,9 +59,13 @@ and a browser workspace, on one local service, and the AlbertCode engine's two h
 | Open the session in the other interface | `/web` | `albert-mini -s <id>` in a terminal |
 | Add an MCP server | `/mcp` | **MCP servers**, from <kbd>Ctrl</kbd> <kbd>K</kbd> |
 | Every command | `/help`, or <kbd>Ctrl</kbd> <kbd>P</kbd> | <kbd>Ctrl</kbd> <kbd>K</kbd> |
+| Search this guide | `/docs <words>`, or `albert-mini docs <words>` | **Help** › **Search the guide…**, or `/docs` |
+| Show or hide the agent's steps | `/details`, or <kbd>Ctrl</kbd> <kbd>X</kbd> <kbd>O</kbd> | <kbd>Alt</kbd> <kbd>S</kbd> |
 
 ## Getting help
 
+- Search this guide where you work: Help in the browser, `/docs <words>` in the terminal, or
+  `albert-mini docs <words>` in a shell. It comes with mini-AlbertCode, so it works offline.
 - [Troubleshooting](troubleshooting.md) has the fixes for common problems, and `albert-mini doctor`
   checks your installation.
 - Report a bug in [Issues](https://github.com/huynvic/mini-albertcode-swe-agent/issues/new/choose), with

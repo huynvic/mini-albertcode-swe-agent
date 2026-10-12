@@ -50,8 +50,9 @@ The same keys work in both interfaces, and an answer given in one is seen at onc
 | `/attach <paths>` | Attach files to your next message |
 | `/web` | Open this session in the browser |
 | `/help` | Every command, to search and run |
+| `/docs <words>` | Search this guide (`albert-mini docs <words>` in a shell) |
 
-In the browser, `Ctrl+K` lists every command. See [The terminal](terminal.md#commands) and
+In the browser, `Ctrl+K` lists every command, and Help searches this guide. See [The terminal](terminal.md#commands) and
 [The browser](browser.md#keys).
 
 ## Sessions

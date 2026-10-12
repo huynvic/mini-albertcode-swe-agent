@@ -55,6 +55,8 @@ your Linux desktop keyring) and never shown again. See [Security](security.md).
 
 ## Choosing a model
 
+Change the model at any time; the next message uses it.
+
 | Where | How |
 |---|---|
 | Terminal | `/model`, or `ctrl+x m` |

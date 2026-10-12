@@ -29,7 +29,8 @@ been at it:
 ```
 
 A reply lists what it reads before it answers (*Read cart.py*), then folds the list to one line once
-the answer begins (*3 steps before answering*).
+the answer begins (*3 steps before answering*). A change's task shows in the conversation from its first
+moment, with each step as it lands, while it is still being planned.
 
 | Key | Does |
 |---|---|
@@ -74,6 +75,7 @@ them.
 | `/web` | Open this session in the browser |
 | `/status` | The service, the engine and what is connected |
 | `/help` | Every command, to search and run |
+| `/docs [words]` | Search this guide; Enter reads a match (`/docs update`) |
 | `/keys` | Every key, and the answers at a gate |
 | `/exit` | Leave (the service and any task keep going) |
 
@@ -81,7 +83,7 @@ Your [custom commands](extending.md) run as `/name`, and an MCP server's prompts
 
 ## Leader keys
 
-`ctrl+x`, then one letter:
+Keyboard shortcuts: `ctrl+x`, then one letter:
 
 | Key | Opens | Key | Opens |
 |---|---|---|---|
@@ -108,6 +110,17 @@ model**, `ctrl+s` also makes it the default for new sessions.
 A gate is a question over the prompt, with numbered answers: the arrows choose, `enter` gives the
 chosen one, or its number or its letter does. `esc` goes back to the box, and `esc` from the box comes
 back to the gate. See [Modes and approvals](modes-and-approvals.md) for every gate and answer.
+
+## The guide
+
+`/docs` searches this guide as you type, offline: it comes with mini-AlbertCode, so it always matches
+the version you have. `Enter` reads the section chosen, with its link to the guide online, and `esc`
+goes back to the matches. With nothing typed, it lists the guide's pages.
+
+```text
+/docs update            the sections on updating
+/docs model             how to choose a model
+```
 
 ## The sidebar
 

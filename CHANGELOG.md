@@ -3,6 +3,32 @@
 Every release of mini-AlbertCode SWE Agent, newest first. Each one's installers and checksums are on
 its [release page](https://github.com/huynvic/mini-albertcode-swe-agent/releases).
 
+## 0.1.6
+
+- **Answers start sooner.** With the same model, a conversation now asks it for a light think (Speed:
+  Fast), where it used to ask for the provider's deepest, and a change you ask for is said and started at
+  once instead of being read through twice. With DeepSeek: a question's first word came in 4.3 s (from
+  6.0), a direct change started in 2.5 s (from 7.1), a governed change showed its card in 3.6 s (from
+  8.1), and its plan was ready in 11 s (from 16).
+- **The browser keeps up.** A long answer used to be drawn again in full for every few words; now only
+  the paragraph being written is, a frame at a time, and following the conversation no longer makes the
+  page measure itself on every word. On a slow laptop the page stayed responsive while an answer streamed
+  (its longest pause 0.24 s, from 1.7 s).
+- **What the model is thinking** shows under *Thinking…* while it thinks, for a model that shares it
+  (DeepSeek, among others), so a long think is never a blank wait. It is shown live and never kept.
+- **Show or hide the agent's steps** with `Alt+S`, the View menu, or a task card's own *Steps* switch.
+  Hidden, you still see the one step under way. The choice is kept in your browser.
+- **More room for the conversation.** The box is one line until you type more, the session's head and a
+  gate are tighter, the project bar shows only on a new session, and a notice is a short strip at the top
+  instead of covering the conversation: on a 1366 × 768 screen with a plan waiting, the conversation has
+  370 pixels, from 230.
+- **Search the guide where you work.** Help in the browser (`/docs`), `/docs` in the terminal and
+  `albert-mini docs` in a shell search this guide as you type and show the section that answers you, with
+  its link online. The guide comes with mini-AlbertCode, so it works offline and matches your version.
+- **The terminal shows a planned change while it is planned**: its task appears in the conversation
+  from its first moment, as in the browser, not once the plan is ready.
+- A command that opens a dialog from the box (`/model`, `/docs`) leaves the keys with the dialog.
+
 ## 0.1.5
 
 - **A pressed answer shows at once.** Approve, Accept, Allow, Reject, Discard, *Plan it first* and *Do it

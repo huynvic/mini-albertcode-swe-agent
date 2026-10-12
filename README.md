@@ -103,7 +103,7 @@ or two.
 > When it finishes, **open a new terminal**, then check it:
 >
 > ```bash
-> albert-mini --version     # mini-AlbertCode SWE Agent 0.1.5 (AlbertCode engine 1.51.1)
+> albert-mini --version     # mini-AlbertCode SWE Agent 0.1.6 (AlbertCode engine 1.51.1)
 > albert-mini doctor        # the installation, the service, and what to do about any problem
 > ```
 
@@ -524,7 +524,7 @@ the name in solid letters, and the prompt with the folder, the model and the mod
   <img src="assets/readme/screen-terminal-help-light.png" alt="The Commands list in the terminal: a search line, then every command under its group, each with what it does." width="100%">
 </picture>
 
-<sub><code>/help</code> lists every command to search and run; <code>/keys</code> lists every key.</sub>
+<sub><code>/help</code> lists every command to search and run; <code>/keys</code> lists every key; <code>/docs</code> searches the guide.</sub>
 
 </details>
 
@@ -554,6 +554,10 @@ setting) and four more themes, shared with the terminal.
 | <kbd>Alt</kbd> <kbd>B</kbd> | Every session |
 | <kbd>Alt</kbd> <kbd>P</kbd> | Show or hide the inspector |
 | <kbd>Alt</kbd> <kbd>M</kbd> | Choose the model |
+| <kbd>Alt</kbd> <kbd>S</kbd> | Show or hide the agent's steps |
+
+Help (or `/docs` in the box) searches the user guide as you type and reads the section that answers you,
+offline. The terminal has the same search as `/docs`, and a shell as `albert-mini docs <words>`.
 
 <details>
 <summary><b>A new session opens on a launchpad</b></summary>

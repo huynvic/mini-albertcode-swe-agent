@@ -51,7 +51,11 @@ it out of the address. See [Security](security.md).
   a click. A task shows as a card from its first moment, while it is still planning, not only once the
   plan is ready. The card lists each step as it lands, with the step under way at its foot (*Running
   python -m pytest -q…*, or *Thinking…* while the model works out what to do next) and the time it has
-  been at it.
+  been at it. While the model thinks, the last of what it is thinking shows under *Thinking…*, for a
+  model that shares it.
+- **The agent's steps**: `Alt+S`, or *Show the agent's steps* in the View menu, shows or hides the
+  steps of answers and tasks. Hidden, an answer or a task still shows the one step under way, so you see
+  it working; a task's card has its own *Steps* switch too. The choice is kept in this browser.
 - **The console**, at the session's foot: type at the ❯, and under it + (attach), the mode (Governed,
   Direct or Ask only, one click each; with Direct, whether each write is asked about or approved), the
   provider and the model, the agent, and send. Under the console, what it works on: the project, its
@@ -79,7 +83,7 @@ clone a project, connect a provider).
 | Git | Changes, commit, pull, push, switch branch, new branch, new worktree, set up Git in a folder without it |
 | View | The inspector's tabs, the theme, the time of each message |
 | Settings | Settings, providers, connect a provider, models, MCP servers, agents |
-| Help | Every command, keys and commands, this guide, the service's status |
+| Help | Search the guide, every command, keys and commands, the guide online, the service's status |
 
 Click a menu to open it, move along with the arrow keys or the mouse, and press `Esc` to close it.
 
@@ -126,6 +130,8 @@ committed, you are asked twice). It works the same for a repository you opened a
 
 ## Keys
 
+Keyboard shortcuts, also under Help (`/help`):
+
 | Key | Does |
 |---|---|
 | `Enter` | Send |
@@ -136,9 +142,24 @@ committed, you are asked twice). It works the same for a repository you opened a
 | `Alt+B` | Every session |
 | `Alt+P` | Show or hide the inspector |
 | `Alt+M` | Choose the model |
+| `Alt+S` | Show or hide the agent's steps |
 | `/` | Commands, in the box |
 | `@` | Mention a file, in the box |
 | `↑` `↓` | Earlier messages you sent, in an empty box |
+
+## Help and the guide
+
+Help (the Help menu, `/help` or `/docs` in the box) searches this guide as you type: write a few words
+(*update*, *model*, *stop*, *keys*) and the sections that answer them are listed, best
+first, each with the line that matched. Click one, or press `Enter`, to read it in place; *Online*
+opens it on GitHub. The guide comes with mini-AlbertCode, so the search needs no network and always
+matches the version you have. With nothing typed, Help lists the guide's pages, every key, the answers
+at a gate and the modes.
+
+```text
+/docs update          the sections on updating, the command first
+/docs model           how to choose a model, in each interface
+```
 
 ## Gates
 
@@ -174,7 +195,7 @@ The Settings menu, or every command (`Ctrl+K`, *Settings*). A section at a time:
 
 | Speed | What it does |
 |---|---|
-| Fast (the default) | A lighter review; planning and writing as deep as ever. A governed fix took about a quarter less time |
+| Fast (the default) | Quick answers in the conversation, and a lighter review; planning and writing as deep as ever. A governed fix took about a quarter less time |
 | Balanced | The engine's own depth at each step |
 | Thorough | The most thinking at every step: slower, for changes that need it |
 

@@ -113,6 +113,19 @@ albert-mini stats            # sessions, messages, tasks, files changed, model c
 albert-mini stats --json
 ```
 
+## docs
+
+```bash
+albert-mini docs                    # the guide's pages, with their links
+albert-mini docs update             # the best match in full, then the other places it is said
+albert-mini docs model
+albert-mini docs mcp --limit 10
+albert-mini docs "stop a task" --json
+```
+
+Searches this guide, offline: it comes with mini-AlbertCode, so it always matches the installed version.
+It exits 1 when nothing matches. The terminal has the same search as `/docs`, and the browser in Help.
+
 ## update and uninstall
 
 ```bash

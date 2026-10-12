@@ -41,6 +41,7 @@ problem.
 | A provider shows `key not accepted` | The provider refused the key. Connect it again with a new key. |
 | A local server shows `not answering` | Start your model server, then check its address with `/connect`. |
 | The model answers but never changes anything | It may not support tool calling. `albert-mini models test` checks. |
+| Answers are slow to start | Keep Speed on Fast (Settings › General, or `/speed fast`): answers think lightly. A model's first word also depends on its provider; `albert-mini models test` times it. |
 
 ## Tasks
 
