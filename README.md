@@ -103,7 +103,7 @@ or two.
 > When it finishes, **open a new terminal**, then check it:
 >
 > ```bash
-> albert-mini --version     # mini-AlbertCode SWE Agent 0.1.4 (AlbertCode engine 1.51.1)
+> albert-mini --version     # mini-AlbertCode SWE Agent 0.1.5 (AlbertCode engine 1.51.1)
 > albert-mini doctor        # the installation, the service, and what to do about any problem
 > ```
 
@@ -335,6 +335,22 @@ One request, from plan to proof. Every screen below is the same task, followed i
 </table>
 
 <details>
+<summary><b>Watch it work, step by step</b></summary>
+
+<br>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-working-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-working-light.png">
+  <img src="assets/readme/screen-working-light.png" alt="The task building after its plan was approved: the gate track lit at Build in a copy, and the task's card saying Working for 3 seconds, with its steps so far (the plan approved, the change made and written, the tests run) and the step under way, Thinking, with a spinner." width="100%">
+</picture>
+
+<sub>Each step shows as it lands, with the one under way and the time it has been at it. A pressed answer
+says so on its button at once.</sub>
+
+</details>
+
+<details>
 <summary><b>Or just ask</b></summary>
 
 <br>
@@ -342,10 +358,11 @@ One request, from plan to proof. Every screen below is the same task, followed i
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-ask-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-ask-light.png">
-  <img src="assets/readme/screen-ask-light.png" alt="A question in the Ask only mode: what the project does, answered from its files, with the bug it noticed." width="100%">
+  <img src="assets/readme/screen-ask-light.png" alt="A question in the Ask only mode: what the project does, answered from its files, with the bug it noticed, and above the answer, folded to one line, the 3 steps it took to read the project before answering." width="100%">
 </picture>
 
-<sub>Questions are answered in every mode, from the repository's own files. Nothing changes.</sub>
+<sub>Questions are answered in every mode, from the repository's own files, each file it reads shown as it
+reads it. Nothing changes.</sub>
 
 </details>
 

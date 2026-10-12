@@ -3,6 +3,24 @@
 Every release of mini-AlbertCode SWE Agent, newest first. Each one's installers and checksums are on
 its [release page](https://github.com/huynvic/mini-albertcode-swe-agent/releases).
 
+## 0.1.5
+
+- **A pressed answer shows at once.** Approve, Accept, Allow, Reject, Discard, *Plan it first* and *Do it
+  directly* say on their own button what they are doing (*Approving…*, *Accepting…*, *Starting the
+  plan…*) the moment you press them, and the other answers wait, so nothing is answered twice. Once the
+  service has the answer, the gate says what happened until the work moves on. Stop says *Stopping…*, and
+  the send button shows that your message is on its way.
+- **Replies show what they read.** Before Albert answers, each file it reads and each search shows as a
+  step (*Read cart.py*, *Searched for "discount"*), with the step under way beside it, in the browser and
+  the terminal. Words said before reading stay as a step instead of vanishing. Then the answer flows in
+  word by word, and the steps fold to one line that opens again.
+- **A task is followed from its first moment.** A planned change shows its card while it is being planned,
+  not once the plan is ready (with DeepSeek, about five seconds sooner), and a change started from *Plan
+  it first* shows at once instead of after its planning. The card lists each step as it lands, with the
+  step under way at its foot and the time it has been at it, counting.
+- **The terminal says what Albert is doing**: the line over the prompt names the step (*Reading cart.py…*,
+  *Running python -m pytest -q…*) rather than only *Working*.
+
 ## 0.1.4
 
 - **Faster everywhere.** Typing in the browser now takes about a frame (11 ms a key, from 64 ms), an

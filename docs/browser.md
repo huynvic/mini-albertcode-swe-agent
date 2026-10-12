@@ -45,6 +45,13 @@ it out of the address. See [Security](security.md).
   files*. The step the task is on is lit: blue while it works, orange while it waits for you, red where
   it stopped. Click it for the task in full. Direct and Ask only have no gates, so no track.
 - **The conversation**: what you said as prompt lines (❯), Albert's answers under a line naming the model.
+  You see the work as it happens. Before Albert answers, each thing it reads or searches shows as a step
+  (*Read cart.py*, *Searched for "discount"*), with the one under way spinning beside it. Then the answer
+  flows in word by word, and the steps fold to one line (*3 steps before answering*) that opens again on
+  a click. A task shows as a card from its first moment, while it is still planning, not only once the
+  plan is ready. The card lists each step as it lands, with the step under way at its foot (*Running
+  python -m pytest -q…*, or *Thinking…* while the model works out what to do next) and the time it has
+  been at it.
 - **The console**, at the session's foot: type at the ❯, and under it + (attach), the mode (Governed,
   Direct or Ask only, one click each; with Direct, whether each write is asked about or approved), the
   provider and the model, the agent, and send. Under the console, what it works on: the project, its
@@ -143,6 +150,11 @@ A gate is a card over the box with its answers in a row:
 | Permission required (a write, in Direct · ask each write) | Allow once (`a`) · Allow the rest of this task (`⇧A`) · Decline (`n`) |
 | The change is ready | Accept into your files (`a`) · View the diff (`v`) · Ask for changes (`e`) · Discard (`x`) · Reject (`r`) |
 | Start this change? (Ask only) | Plan it first (`p`) · Do it directly (`o`) |
+
+A pressed answer says so on its own button at once (*Approving…*, *Accepting…*, *Starting the plan…*) while
+the other answers wait, so it cannot be given twice. Once the service has it, the gate says what happened
+(*Approved. The build starts in an isolated copy now.*) until the work moves on. Stop says *Stopping…* the
+same way.
 
 ## Settings
 

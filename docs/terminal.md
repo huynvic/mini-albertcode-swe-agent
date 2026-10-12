@@ -20,6 +20,17 @@ your-project · gpt-4o · governed ❯
 Before `❯`: the folder, the model, and the mode. Type a question or a change, then `enter`. Under the
 prompt are the keys worth knowing now and a dot for the connection to the service (green when live).
 
+While Albert works, the line over the prompt says what it is doing right now, with the seconds it has
+been at it:
+
+```text
+⠹ Reading cart.py…  (3s · esc to stop)
+⠼ Running python -m pytest -q…  (21s · esc to stop)
+```
+
+A reply lists what it reads before it answers (*Read cart.py*), then folds the list to one line once
+the answer begins (*3 steps before answering*).
+
 | Key | Does |
 |---|---|
 | `enter` | Send. A command typed in full runs at once |
