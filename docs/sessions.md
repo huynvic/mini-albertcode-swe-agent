@@ -30,7 +30,8 @@ A new session is named after its first message.
 
 Deleting a session removes its messages; its tasks and their evidence stay. Taking a project off the list
 archives its sessions (Every session still has them) and never touches its folder. Sessions run on their
-own: while one works you can open, use and stop the others.
+own: while one works you can open, use and stop the others. Stop answers at once, even in the middle of a
+long step of the model's: the session is free again straight away, and that step ends in the background.
 
 ```bash
 albert-mini sessions                    # newest first

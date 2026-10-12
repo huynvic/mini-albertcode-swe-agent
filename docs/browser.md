@@ -174,8 +174,18 @@ A gate is a card over the box with its answers in a row:
 
 A pressed answer says so on its own button at once (*Approving…*, *Accepting…*, *Starting the plan…*) while
 the other answers wait, so it cannot be given twice. Once the service has it, the gate says what happened
-(*Approved. The build starts in an isolated copy now.*) until the work moves on. Stop says *Stopping…* the
-same way.
+(*Approved. The build starts in an isolated copy now.*) until the work moves on, within a moment. Stop says
+*Stopping…* the same way.
+
+No answer waits for the model. Plan it first and Do it directly close the question at once: the proposal says
+*Starting the plan…* and the steps show as Albert reads and plans; the plan comes back as its own question.
+Stop answers at once too, even while the model is in the middle of a long step: the session is free again
+straight away, and that step ends quietly in the background.
+
+**Example.** In Ask only, Albert offers "Add `greet()` to `app.py`". Press `p`: the card closes, the
+proposal says *Starting the plan…*, and *Reading app.py…* shows below it. About half a minute later, with
+DeepSeek, *Plan ready for your approval* opens. Press `Esc` while it plans instead, and the session is free
+in under a second.
 
 ## Settings
 

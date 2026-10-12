@@ -3,6 +3,19 @@
 Every release of mini-AlbertCode SWE Agent, newest first. Each one's installers and checksums are on
 its [release page](https://github.com/huynvic/mini-albertcode-swe-agent/releases).
 
+## 0.1.8
+
+- **No answer waits for the model.** *Plan it first* and *Do it directly* on a proposed change used to keep
+  the question open, its button spinning, until the model had planned the change (a direct change: until it
+  was done), half a minute or more; in the terminal, every key pressed after it waited in line. The question
+  now closes at once, the proposal says it is starting, and the steps show as Albert reads and plans. If the
+  change cannot start, the proposal is offered again with a note saying why.
+- **Stop answers at once**, even while the model is in the middle of a long step. Stop used to wait for that
+  step to end (with DeepSeek, a minute or more of *Stopping…*); the session is now free again in under a
+  second, and the step ends quietly in the background.
+- Measured with a long build running: approving a plan closes its question in 0.3 s, accepting a change in
+  0.15 s, starting a proposed change in 0.3 s, and typing keeps up (under 75 ms a key).
+
 ## 0.1.7
 
 - **A build no longer goes round in circles.** A task that looked at its page in the browser lost its place:

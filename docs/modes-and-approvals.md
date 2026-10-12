@@ -67,6 +67,10 @@ Each write and each command waits for you, with what it changes:
 | `p` | Plan it first: a plan comes back for your approval |
 | `o` | Do it directly in your files |
 
+Either closes the question at once, and the proposal says it is starting while Albert reads the code; the
+steps show as they happen. If the change cannot start (no model connected, say), the proposal is offered
+again with a note saying why.
+
 ## Answering
 
 In the terminal, a gate is a question over the prompt with numbered answers: the arrows choose and
