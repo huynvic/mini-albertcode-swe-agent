@@ -195,11 +195,19 @@ The Settings menu, or every command (`Ctrl+K`, *Settings*). A section at a time:
 
 | Speed | What it does |
 |---|---|
-| Fast (the default) | Quick answers in the conversation, and a lighter review; planning and writing as deep as ever. A governed fix took about a quarter less time |
+| Fast (the default) | Quick answers in the conversation, and a lighter review; planning and writing as deep as ever |
 | Balanced | The engine's own depth at each step |
 | Thorough | The most thinking at every step: slower, for changes that need it |
 
-Every check and every review runs at every speed.
+A model that thinks just as hard whatever it is asked (such as DeepSeek) has its thinking switched off
+where a step asks for a light think: at Fast, answers in the conversation and the review.
+
+**Example.** "Build a simple HTML chess game" with DeepSeek, Governed, at Fast: the review took 43 s
+where it took 128 s, and the whole task about 10 minutes instead of 11 (605 s against 677 s). Planning
+and writing keep their depth: with DeepSeek's thinking off for writing too, the same game was built in 3
+minutes once, but more often it took longer, the model clicking through its page hundreds of times.
+
+Every check and every review runs at every speed. At every speed, a task that goes round in circles (the same steps answered the same way, or a failing step asked again in other words and failing the same way) is stopped, and what it wrote is checked and reviewed as it stands; it is never started over just to go round again.
 
 Six themes, the same as the terminal's: Nebula and Aurora (the defaults, dark and light, by your
 system's setting: glass panels over a lit backdrop), Ember, Ember light, Slate and High contrast.

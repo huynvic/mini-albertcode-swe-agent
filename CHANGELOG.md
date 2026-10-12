@@ -3,6 +3,29 @@
 Every release of mini-AlbertCode SWE Agent, newest first. Each one's installers and checksums are on
 its [release page](https://github.com/huynvic/mini-albertcode-swe-agent/releases).
 
+## 0.1.7
+
+- **A build no longer goes round in circles.** A task that looked at its page in the browser lost its place:
+  each screenshot was counted as if it were 400,000 characters of text, over the whole memory budget, so the
+  task folded its memory after every look, forgot it had already written the change, and started finding out
+  again. A simple browser chess game never finished: still going after 25 minutes, 234 model calls and 4.9
+  million input tokens. This release carries AlbertCode's own fix, before AlbertCode releases it: a picture
+  counts what it costs, only the latest two screenshots stay in the conversation (pictures you attach are
+  never dropped), and a fold names the files already changed.
+- **Any task going round in circles is stopped.** When every step repeats an earlier one and gets the same
+  answer, the task is told so after three rounds, refused its tools after five and stopped after seven; what
+  it wrote is checked and reviewed as it stands, and it is never started over just to go round again. A
+  failing step asked again in other words counts too: a task that ran one failing test command 91 times,
+  one flag longer each time, is now stopped after seven.
+- **DeepSeek thinks lightly where a step asks it to.** DeepSeek thinks just as hard whatever level it is
+  sent, so a light think now switches its thinking off: at Speed: Fast, answers in the conversation and the
+  review. "Build a simple HTML chess game" with DeepSeek, Governed: the review in 43 s instead of 128 s, the
+  task in about 10 minutes instead of 11; a short question's first word in 1.9 s instead of 2.4 s. Planning
+  and writing keep their depth: switched off there too, DeepSeek built the same game in 3 minutes once, but
+  more often took longer, clicking through its page hundreds of times.
+- **A model that turns pictures down is not sent them again**, and is told it cannot look at them, instead of
+  being told "the image is attached; look at it".
+
 ## 0.1.6
 
 - **Answers start sooner.** With the same model, a conversation now asks it for a light think (Speed:
