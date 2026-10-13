@@ -3,6 +3,15 @@
 Every release of mini-AlbertCode SWE Agent, newest first. Each one's installers and checksums are on
 its [release page](https://github.com/huynvic/mini-albertcode-swe-agent/releases).
 
+## 0.1.10
+
+- **Choosing Direct in a folder without Git asks at once.** Direct keeps Git as its undo, so in a folder
+  without it a direct change used to stop at a question only once you had asked for it. Now the question comes
+  the moment you choose Direct (the mode buttons in the browser; `tab` or `/mode direct` in the terminal):
+  *Direct needs Git here. Set up Git now?* **Yes** starts Git with what is in the folder as its first commit
+  (files that look like they hold secrets are left out) and turns Direct on; **No** makes nothing and keeps
+  the mode as it was. In a folder that has Git, Direct is chosen as fast as before, with no question.
+
 ## 0.1.9
 
 - **Preview: run the project beside the conversation.** ▷ in a session's head (or `/preview` in the terminal)

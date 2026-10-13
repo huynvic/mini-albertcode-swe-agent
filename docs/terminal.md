@@ -37,7 +37,7 @@ moment, with each step as it lands, while it is still being planned.
 | `enter` | Send. A command typed in full runs at once |
 | `ctrl+j` or `alt+enter` | A new line |
 | `↑` / `↓` | Earlier messages you sent |
-| `tab` | The next mode |
+| `tab` | The next mode (in a folder without Git, Direct asks first whether to set it up) |
 | `/` | Commands, filtered as you type |
 | `@` | Mention a file of the repository |
 | `esc` | Stop a run · go between the box and a gate · close a list |
@@ -58,7 +58,7 @@ them.
 | `/new` | A new session |
 | `/sessions` | Open, rename, pin or delete sessions |
 | `/model` | The model for this session |
-| `/mode [governed\|direct\|auto\|ask]` | How a change is handled; with no word, the list |
+| `/mode [governed\|direct\|auto\|ask]` | How a change is handled; with no word, the list. Direct, in a folder without Git, asks first whether to set it up ([Modes](modes-and-approvals.md#the-modes)) |
 | `/agent` | Work as one of this repository's custom agents |
 | `/connect` | Connect a model provider |
 | `/mcp` | MCP servers: on or off, sign in, add a connector, import from JSON |

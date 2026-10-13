@@ -114,7 +114,7 @@ Git menu, do what you would do at a terminal:
   it. Uncommitted changes go with you, unless they clash.
 - **New branch…**: a name, and the branch it starts from.
 - **Set up Git here**: for a folder without a repository, on branch `main`. Direct work needs Git: it
-  is the undo (asked for Direct in a folder without it, Albert offers to set it up; see
+  is the undo. Choose Direct in a folder without it and you are asked at once whether to set it up (see
   [Modes and approvals](modes-and-approvals.md#the-modes)). Governed builds in a copy and needs none.
 
 ```text

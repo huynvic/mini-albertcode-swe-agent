@@ -13,19 +13,32 @@ every mode.
 | **Ask only** | Answers, and offers a change; nothing starts until you say go. |
 
 Only Direct needs Git: it writes in your real files and keeps Git as the undo, so a wrong write can be taken
-back. Governed builds in a copy and needs none. Ask for Direct in a folder with no Git and Albert asks first:
+back. Governed builds in a copy and needs none.
+
+**Choosing Direct** in a folder with no Git (the mode buttons in the browser; `tab`, `/mode direct` or
+`/mode auto` in the terminal) asks at once, before anything is sent: *Direct needs Git here. Set up Git now?*
 
 | Answer | What happens |
 |---|---|
-| Set up Git and do it directly (`o`) | Git is started in the folder and what is there now becomes its first commit; files that look like they hold secrets (`.env`, private keys) are left out and stay untracked. Then the change is done directly. |
+| Yes, set up Git (`y` in the terminal) | Git is started in the folder and what is there now becomes its first commit; files that look like they hold secrets (`.env`, private keys) are left out and stay untracked. Then Direct is chosen. |
+| No (`n`, or `esc`) | Nothing is made, and the mode stays as it was. In the terminal, `tab` goes on to Ask only. Governed and Ask only work without Git. |
+
+**Asking for a direct change** in a folder with no Git (`/direct …` or `/do …` in front of a message, *Do it
+directly* on a change offered in Ask only, or a session started in Direct) asks the same question in the
+conversation:
+
+| Answer | What happens |
+|---|---|
+| Set up Git and do it directly (`o`) | Git is set up as for *Yes* above, then the change is done directly. |
 | Plan it first (`p`) | The change is planned and built in a copy, as Governed; no Git is made. |
 
 Nothing is made until you answer. A folder with more files than a first commit should carry (usually a
 dependency folder a `.gitignore` would leave out) is left as it was, and the answer says so.
 
-**Example.** In a folder of HTML files with no Git, `/direct auto Add a dark mode toggle` asks *Direct needs
-Git here*. Press `o`: the folder gets Git with one commit, *Baseline before the first direct change*, and the
-toggle is added; `git diff` shows exactly what Albert changed, and `git checkout .` undoes it.
+**Example.** Open a folder of HTML files with no Git and click **Direct**: *Direct needs Git here* pops up.
+Choose **Yes, set up Git**: the folder gets Git with one commit, *Baseline before the first direct change*,
+and Direct is on. Ask *Add a dark mode toggle*; `git diff` shows exactly what Albert changed, and
+`git checkout .` undoes it.
 
 Choose it:
 
