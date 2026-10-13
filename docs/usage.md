@@ -73,8 +73,33 @@ that stops at another gate exits with code 3, to be answered in either interface
 
 ## Attachments
 
-Give it files or screenshots to read: `/attach <paths>` in the terminal, or the `+` beside the box in the
-browser. They go with your next message.
+Give it screenshots, documents and other files to read with your message.
+
+| Interface | How |
+|---|---|
+| Browser | The **+** under the box, paste a screenshot, or drop files onto the page |
+| Terminal | `/attach <paths>`: one or more paths, globs work (`/attach logs/*.txt error.png`). `/attach` alone lists what is waiting; `/attach clear` drops it |
+
+In the browser each file shows as a tile in the box the moment you add it: a picture or a PDF as a small
+picture of itself, any other file with its kind and size. **×** on a tile removes it. Once sent, the same
+tiles show in the message, and a click opens the file.
+
+| What you attach | What the model gets |
+|---|---|
+| Pictures: PNG, JPEG, GIF, WebP | The picture itself, when the model accepts pictures; otherwise you are told it could not see it |
+| PDF | Its text; a scanned page, with no text in it, as a picture of the page |
+| Word (`.docx`), Excel (`.xlsx`), PowerPoint (`.pptx`) | Their text, and a spreadsheet's cells |
+| Text and code: `.txt`, `.md`, `.csv`, `.json`, `.log`, `.py`, `.ts` and the like | The text |
+| Video: MP4, MOV, WebM | Stills from it in order, each with its time, when the model accepts pictures |
+| Older Office files (`.doc`, `.xls`, `.ppt`) and anything else | Its name and size only: save it as `.docx`, `.xlsx`, `.pptx` or PDF for it to be read |
+
+Up to 20 files, each up to 500 MB. They go with your next message, and a change started in the session,
+then or later, gets the session's files too, so the work sees the screenshot the conversation just read.
+A file is kept apart from your repository, never written into it.
+
+For example: drop `error.png` and `invoice.pdf` onto the page, type *Why does checkout show this error,
+and does the total match the invoice?* and send. Albert reads the error in the picture and the total in
+the PDF; with Direct chosen, *fix it* then starts the change with both files to hand.
 
 ## Checking your setup
 

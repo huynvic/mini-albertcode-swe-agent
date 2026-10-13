@@ -3,6 +3,44 @@
 Every release of mini-AlbertCode SWE Agent, newest first. Each one's installers and checksums are on
 its [release page](https://github.com/huynvic/mini-albertcode-swe-agent/releases).
 
+## 0.1.11
+
+- **Attachments show as themselves, and the work gets them.** A picture or a PDF you attach now shows as a
+  small picture of itself in the box the moment you add it, and in your message once sent; a Word, Excel,
+  PowerPoint or any other file shows its kind and size; a click opens it. Albert reads pictures (for a model
+  that accepts them), PDFs (a scanned one's pages as pictures), Word, Excel, PowerPoint, text and code
+  files. A change started from the conversation used to get none of the session's files, so the work could
+  not see the screenshot just read; now it gets them all. Sending while a file is still uploading waits for
+  it, rather than leaving it behind.
+- **Switching mode mid-conversation works.** In Governed, a change's plan waits for your approval; switching
+  to Direct and saying *do it* used to be taken as feedback on that plan, which was planned again, still in
+  Governed, however often you said you had switched. Now the plan is set aside and the change done directly.
+  Albert is also told the mode on every message, so *I've switched to Direct, go ahead* is understood; and
+  when it tells you to switch mode for a change, it starts nothing and offers the change instead.
+- **105 connectors ready to add, 58 of them services you sign in to.** With network access, about 120 hosted
+  MCP servers were tried in mini-AlbertCode as you would add one. Sixteen that need no sign-in connected and
+  answered a real tool call: DeepWiki, Context7, Microsoft Learn, Cloudflare Docs, GitMCP, Astro Docs,
+  Svelte, Exa Search, LiveKit Docs, javadocs.dev, OpenAI Docs, LangChain Docs, Convex, CoinGecko,
+  OpenZeppelin Contracts and Socket. Fifty-eight services reached with your own account were checked as far
+  as anyone can go without that account: *Add* registered mini-AlbertCode with the service and opened its
+  own sign-in or consent page. Among them are GitLab, Linear, Notion, Jira and Confluence, Asana, Sentry,
+  Stripe, Supabase, Neon, Vercel, Netlify, five Cloudflare servers, PostHog, Miro, monday.com, ClickUp,
+  Airtable, PayPal, Square, Zapier and Webflow, grouped by kind. GitHub, Figma, Slack and a few others do
+  not let an app register itself; the guide shows how to add them with a token.
+- **A sign-in asks for what the server names.** Upstash refused mini-AlbertCode's sign-in ("invalid_scope")
+  because it was asked for every scope its sign-in server lists; it is now asked for the scopes the server
+  itself names, as the MCP specification says. A server whose declared resource differs from its address
+  (Vercel, Airtable, Asana and others) is now asked for the resource it declares, only ever on its own site.
+  Consent pages name *mini-AlbertCode SWE Agent* rather than AlbertCode.
+- **Nineteen more, mostly run on your machine**, each added from the directory exactly as you would, connected,
+  and answering a real tool call: ESLint, Code Index, Tree-sitter, Repomix, shadcn/ui, Next.js DevTools,
+  Angular CLI, Shopify Dev, AWS Knowledge, PyPI, npm Search, SQLite, DuckDB, Chroma, Qdrant, Excel,
+  MarkItDown, Word documents and Calculator.
+- **A connector that signs in is one step.** *Add* opens its sign-in page at once, in a new tab (in the
+  terminal and with `albert-mini mcp install <id>`, in your browser): sign in, allow access, and it connects
+  by itself, with no key typed anywhere. The page you end on now says to go back to mini-AlbertCode rather
+  than AlbertCode.
+
 ## 0.1.10
 
 - **Choosing Direct in a folder without Git asks at once.** Direct keeps Git as its undo, so in a folder

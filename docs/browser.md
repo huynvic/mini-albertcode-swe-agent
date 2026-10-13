@@ -56,7 +56,7 @@ it out of the address. See [Security](security.md).
 - **The agent's steps**: `Alt+S`, or *Show the agent's steps* in the View menu, shows or hides the
   steps of answers and tasks. Hidden, an answer or a task still shows the one step under way, so you see
   it working; a task's card has its own *Steps* switch too. The choice is kept in this browser.
-- **The console**, at the session's foot: type at the ❯, and under it + (attach), the mode (Governed,
+- **The console**, at the session's foot: type at the ❯, and under it + ([attach](usage.md#attachments)), the mode (Governed,
   Direct or Ask only, one click each; with Direct, whether each write is asked about or approved), the
   provider and the model, the agent, and send. Under the console, what it works on: the project, its
   checkout (the repository itself or one of its worktrees) and its branch, each a menu.

@@ -51,6 +51,24 @@ Choose it:
 
 The mode belongs to the session, so both interfaces show the same one.
 
+### Switching mode in the middle of a conversation
+
+The mode counts from your next message, and Albert is told it every time, so you can switch whenever you
+like and say so in plain words:
+
+| When you switch | Your next message |
+|---|---|
+| Albert offered a change and nothing has started | Say *go ahead*: the change starts in the mode you are in now |
+| A governed plan is waiting for your approval, and you switch to Direct | The change is done directly. The plan is set aside (rejected, with the reason recorded), and nothing had been built from it |
+| A governed change has been built and is waiting for you to accept it, and you switch to Direct | Nothing is thrown away: Albert says so. Accept it, or discard it and ask again in Direct |
+
+If you ask for a change in a way the mode you are in does not work (*just do it directly* while in
+Governed, say), Albert says which mode does that and starts nothing; the change is offered under its reply
+with *Plan it first* and *Do it directly*, so you can press one, or switch and say *go ahead*.
+
+**Example.** In Governed, *Add a multiply(a, b) function to app.py* comes back as a plan. Switch to Direct
+beside the box and send *ok, do it directly*: the plan is set aside and the function is added to your files.
+
 ## The two human gates
 
 In the Governed mode a change stops twice for you.

@@ -68,7 +68,7 @@ them.
 | `/fork` | A new session holding this one's messages |
 | `/export [file]` | Save this session as a JSON file |
 | `/import <file>` | Open a session saved as JSON |
-| `/attach <paths>` | Attach files to your next message |
+| `/attach <paths>` | Attach pictures, PDFs, Word and other files to your next message; `/attach` lists them, `/attach clear` drops them ([Attachments](usage.md#attachments)) |
 | `/theme` | Choose a colour theme |
 | `/speed [fast\|balanced\|thorough]` | How much the model thinks at each step of a task (shared with the browser) |
 | `/details` | Show every step of the tasks here |
