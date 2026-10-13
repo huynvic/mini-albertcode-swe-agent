@@ -12,6 +12,21 @@ every mode.
 | **Direct · auto-approve** | Works in your real files and carries the whole change out without asking. Git is the undo. |
 | **Ask only** | Answers, and offers a change; nothing starts until you say go. |
 
+Only Direct needs Git: it writes in your real files and keeps Git as the undo, so a wrong write can be taken
+back. Governed builds in a copy and needs none. Ask for Direct in a folder with no Git and Albert asks first:
+
+| Answer | What happens |
+|---|---|
+| Set up Git and do it directly (`o`) | Git is started in the folder and what is there now becomes its first commit; files that look like they hold secrets (`.env`, private keys) are left out and stay untracked. Then the change is done directly. |
+| Plan it first (`p`) | The change is planned and built in a copy, as Governed; no Git is made. |
+
+Nothing is made until you answer. A folder with more files than a first commit should carry (usually a
+dependency folder a `.gitignore` would leave out) is left as it was, and the answer says so.
+
+**Example.** In a folder of HTML files with no Git, `/direct auto Add a dark mode toggle` asks *Direct needs
+Git here*. Press `o`: the folder gets Git with one commit, *Baseline before the first direct change*, and the
+toggle is added; `git diff` shows exactly what Albert changed, and `git checkout .` undoes it.
+
 Choose it:
 
 | Where | How |

@@ -48,6 +48,7 @@ problem.
 | Problem | Fix |
 |---|---|
 | A change is waiting and nothing happens | It is at a gate: answer it in either interface (`albert-mini -c` reopens the session). |
+| *Direct needs Git here* | Direct keeps Git as its undo. Press `o` to set Git up in the folder (secrets are left out of its first commit), or `p` to plan the change instead, which needs no Git. |
 | `esc` does nothing | `esc` stops a running task; at a gate it moves between the box and the gate. `/stop` stops it too. |
 | The diff is not shown while a task works | It is shown when the step ends; the inspector lists the files changed so far. |
 

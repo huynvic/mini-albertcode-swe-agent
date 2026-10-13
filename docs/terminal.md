@@ -73,6 +73,8 @@ them.
 | `/speed [fast\|balanced\|thorough]` | How much the model thinks at each step of a task (shared with the browser) |
 | `/details` | Show every step of the tasks here |
 | `/web` | Open this session in the browser |
+| `/preview [stop\|open\|files\|<command>]` | Run this project's app, or serve its pages, at an address of its own; also `/run-app` ([below](#preview)) |
+| `/terminal` | Open your own terminal app in this project's folder |
 | `/status` | The service, the engine and what is connected |
 | `/help` | Every command, to search and run |
 | `/docs [words]` | Search this guide; Enter reads a match (`/docs update`) |
@@ -121,6 +123,34 @@ goes back to the matches. With nothing typed, it lists the guide's pages.
 /docs update            the sections on updating
 /docs model             how to choose a model
 ```
+
+## Preview
+
+`/preview` runs this project the way [Preview in the browser](browser.md#preview) does, and it is the same
+run: start it in one, see it and stop it in the other.
+
+| Command | Does |
+|---|---|
+| `/preview` | Run the app with its own script (`npm run dev`, Django's `runserver`), or, for plain web pages, serve them as they are; when it runs already, show where |
+| `/preview <command>` | Run it with this command instead, for example `/preview python app.py` |
+| `/preview files` | Serve this folder's pages as they are, even when there is a script |
+| `/preview open` | The same as `/preview`, then open it in your browser |
+| `/preview stop` | Stop it |
+
+`/run-app` is another name for `/preview`. It waits while the app starts, then shows *App running*
+with its address and whether it answers:
+
+```text
+App running
+http://localhost:8000/  Serving the files in this folder
+Answering: 200 in 3 ms
+```
+
+If it does not start, the window shows the error and the last of what the app wrote. It keeps running
+while you work, until `/preview stop` or the service ends.
+
+`/terminal` opens your own terminal app in this project's folder: Terminal on a Mac, Windows Terminal (or
+PowerShell) on Windows, your desktop's terminal on Linux. The browser has a [terminal in the page](browser.md#terminal) too.
 
 ## The sidebar
 

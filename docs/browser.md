@@ -19,10 +19,10 @@ it out of the address. See [Security](security.md).
 
 ```text
 ┌ menu bar: Session · Project · Git · View · Settings · Help ──────────────────────────────┐
-│ SESSIONS        │ Fix the discount at checkout                      │ INSPECTOR          │
-│ + New session   │ ✓ Plan ─ ◆ Your approval ─ ○ Build ─ ○ Checks ─ ◇ │ Changes Context    │
-│ ⌕ Find          │                                                    │ Task               │
-│ ▾ shop          │   ❯ what you said                                  │                    │
+│ SESSIONS        │ Fix the discount at checkout                ▷ ⌨  │ INSPECTOR          │
+│ + New session   │ ✓ Plan ─ ◆ Your approval ─ ○ Build ─ ○ Checks ─ ◇ │ Changes Preview    │
+│ ⌕ Find          │                                                    │ Terminal Context   │
+│ ▾ shop          │   ❯ what you said                                  │ Task               │
 │   ● Fix the…    │   Albert · deepseek-flash                          │                    │
 │ ▾ api           │   the answer, the task's steps…                    │                    │
 │   ○ How the…    │  ┌ ❯ the console ─────────────────────────────┐    │                    │
@@ -40,7 +40,7 @@ it out of the address. See [Security](security.md).
   you left it. Beside the open inspector on a screen narrower than 1360 pixels it folds by itself, so the
   conversation keeps its room.
 - **The session**, in the middle. Its head has the title (click to rename), where it works and its mode,
-  Stop while it works, its actions (`⋯`), and, when its latest task is governed, the **gate track**: the work as circles, the two human gates as
+  Stop while it works, Preview (▷) and the terminal (⌨), its actions (`⋯`), and, when its latest task is governed, the **gate track**: the work as circles, the two human gates as
   diamonds: *Plan → Your approval → Build in a copy → Checks and reviews → Your acceptance → In your
   files*. The step the task is on is lit: blue while it works, orange while it waits for you, red where
   it stopped. Click it for the task in full. Direct and Ask only have no gates, so no track.
@@ -62,6 +62,7 @@ it out of the address. See [Security](security.md).
   checkout (the repository itself or one of its worktrees) and its branch, each a menu.
 - **The inspector** (`Alt+P`), on the right: the change, a file at a time, of the task's isolated copy
   or of your working tree (every changed file listed at once, a file's diff read when you open it); the
+  project running in [Preview](#preview); a [terminal](#terminal) in the project's folder; the
   session's context and usage; and the task in full, or, before there is one, how a task goes and the
   recent work in the project. Drag its edge to give it or the conversation more room (or focus the edge
   and use the arrow keys); the width is kept, and a double click puts it back.
@@ -72,7 +73,7 @@ it out of the address. See [Security](security.md).
 
 A new session opens on the **launchpad**: a greeting that names the project, the console, and tiles: the
 sessions to pick up again, how the two gates work (in the Governed mode), and the ways to start (open or
-clone a project, connect a provider).
+clone a project, run it in [Preview](#preview), open a [terminal](#terminal) in it, connect a provider).
 
 ## The menu bar
 
@@ -81,7 +82,7 @@ clone a project, connect a provider).
 | Session | New session, every session, rename, pin, fork, export, import, archive, stop, delete |
 | Project | Open a folder, clone a repository, the projects you worked on recently, worktrees |
 | Git | Changes, commit, pull, push, switch branch, new branch, new worktree, set up Git in a folder without it |
-| View | The inspector's tabs, the theme, the time of each message |
+| View | The inspector's tabs (Changes, Preview, Terminal, Context, Task), the theme, the time of each message |
 | Settings | Settings, providers, connect a provider, models, MCP servers, agents |
 | Help | Search the guide, every command, keys and commands, the guide online, the service's status |
 
@@ -112,8 +113,9 @@ Git menu, do what you would do at a terminal:
 - **Switch branch…**: your branches and the remote's; a remote branch becomes a local one that follows
   it. Uncommitted changes go with you, unless they clash.
 - **New branch…**: a name, and the branch it starts from.
-- **Set up Git here**: for a folder without a repository, on branch `main`. Governed and Direct work
-  need Git: it is the undo.
+- **Set up Git here**: for a folder without a repository, on branch `main`. Direct work needs Git: it
+  is the undo (asked for Direct in a folder without it, Albert offers to set it up; see
+  [Modes and approvals](modes-and-approvals.md#the-modes)). Governed builds in a copy and needs none.
 
 ```text
 shop  /  main checkout  /  main ↑1
@@ -128,6 +130,55 @@ a branch name and the branch to start from, makes it, and opens a session there.
 sessions to one; removing one takes its folder and keeps its branch and commits (with changes not yet
 committed, you are asked twice). It works the same for a repository you opened and for one you cloned.
 
+## Preview
+
+**Preview** (▷ in the session's head, *Run this project* on a new session's launchpad, or the Preview tab
+of the inspector) runs the project beside the conversation, so you see what Albert changed as you would
+use it:
+
+- **An app** (a `dev`, `start`, `serve` or `preview` script in `package.json`, run with the package
+  manager its lockfile names, or Django's `manage.py`) is started with its own command, and the panel
+  says which and why: *Runs `npm run dev` (the dev script in package.json)*. *Run the app* starts it.
+  For anything else, type the command that starts it (`python app.py`, `flask run`) in the box under
+  it; a command that brought the app up is remembered for next time.
+- **Web pages** with nothing to start (an `index.html`, a browser game) are served as they are: *Serve
+  the pages*. Only this computer can reach them, only to read; a file or folder whose name begins with a
+  dot (`.env`, Git's folder), a file that looks like it holds secrets, or a link out of the folder is
+  never served. Each load is fresh, so an edit shows on the next one.
+
+Running, the bar says where it answers and how fast (*Running · localhost:5173 · 200 · 12 ms*), and holds
+*Desktop*, *Tablet* and *Phone* widths, Restart, Open in a new tab, and Stop. If the port it asks for is
+busy, it runs on another and says which. If the app does not start, or stops by itself, or answers with
+an error, the panel shows what it wrote: *Ask Albert to fix* puts it in the box, ready to send, and
+*Logs* shows the rest.
+
+It keeps running while you work, and in the project's other sessions, until you stop it or the service
+ends; the terminal's `/preview` shows the same run. Restart starts an app again; for pages it loads them
+again.
+
+**Example.** In a folder holding `index.html`, `style.css` and `game.js`, open Preview and press *Serve
+the pages*: the game plays in the panel, at `http://localhost:8000/`. Ask *make the board bigger*, apply
+the change, and press Restart to see it.
+
+## Terminal
+
+**Terminal** (⌨ in the session's head, *Open a terminal here* on the launchpad, the Terminal tab, or
+`` Ctrl+` ``) is a real shell in the project's folder, in the page: zsh or bash on macOS and Linux, PowerShell on Windows.
+
+It is off until you turn it on. The first time, the tab explains what it allows: what you type runs on
+this computer as you, outside the limits mini-AlbertCode puts on Albert. Only your own mini-AlbertCode
+page can connect to it, and no model key is in its environment. Turning it on or off is recorded; what
+you type is not.
+
+- **Tabs.** **+** opens another shell (up to 8); **×** or a middle-click closes one.
+- **It keeps running.** Hide it, switch to another tab, or reload the page: each shell carries on and
+  comes back with what it wrote. A shell that has ended says so; press `Enter` for a new one.
+- **Open in your terminal app** opens your own terminal in the project's folder instead, on or off.
+- **Turn off** closes every shell it opened.
+
+**Example.** Turn the terminal on, then run `git status` to see what Albert changed, or
+`npm test` to run the tests yourself while Albert waits for your answer at a gate.
+
 ## Keys
 
 Keyboard shortcuts, also under Help (`/help`):
@@ -141,6 +192,7 @@ Keyboard shortcuts, also under Help (`/help`):
 | `Alt+N` | A new session |
 | `Alt+B` | Every session |
 | `Alt+P` | Show or hide the inspector |
+| `` Ctrl+` `` | Show or hide the terminal |
 | `Alt+M` | Choose the model |
 | `Alt+S` | Show or hide the agent's steps |
 | `/` | Commands, in the box |

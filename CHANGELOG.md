@@ -3,6 +3,24 @@
 Every release of mini-AlbertCode SWE Agent, newest first. Each one's installers and checksums are on
 its [release page](https://github.com/huynvic/mini-albertcode-swe-agent/releases).
 
+## 0.1.9
+
+- **Preview: run the project beside the conversation.** ▷ in a session's head (or `/preview` in the terminal)
+  runs the project's app with its own script (`npm run dev`, Django's `runserver`, or the command you type),
+  or, for plain web pages such as a browser game, serves them as they are, at an address of their own. The
+  panel shows it at desktop, tablet or phone width, says whether it answers, and, when it fails, shows the
+  error with *Ask Albert to fix*. Pages are served only to this computer, and never a `.env`, a key or Git's
+  folder.
+- **A terminal in the page.** ⌨ in a session's head (or `` Ctrl+` ``) opens a real shell in the project's
+  folder, with tabs; each shell keeps running when the panel is hidden or the page reloads. It is off until
+  you turn it on, only your own page can connect to it, and no model key is in its environment. *Open in your
+  terminal app* (`/terminal` in the terminal) opens your own terminal there instead.
+- **Direct in a folder with no Git asks instead of failing.** It used to end in *That did not work: … Shall it
+  set one up?*, with nothing to answer it with. Now the question has its answers: *Set up Git and do it
+  directly* starts Git in the folder with what is there as the first commit (files that look like they hold
+  secrets are left out), then does the change; *Plan it first* builds it in a copy, which needs no Git. Nothing
+  is made until you answer, in the browser or the terminal.
+
 ## 0.1.8
 
 - **No answer waits for the model.** *Plan it first* and *Do it directly* on a proposed change used to keep
